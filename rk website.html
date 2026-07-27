@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risheek — Founder &amp; Cybersecurity</title>
+<meta name="description" content="Risheek — founder and cybersecurity trainer from Jammu, India. Recipient of the Pradhan Mantri Rashtriya Bal Puraskar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF7EF; --ink:#241C15; --ink-soft:#5C5145;
+    --accent:#E08A1E; --accent-deep:#B36A12; --line:#E7DDCB; --card:#FFFDF8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 20px;
+  }
+  .wrap{width:100%;max-width:620px;position:relative}
+  .wrap::before{content:"";position:absolute;top:-120px;right:-80px;width:420px;height:420px;
+    background:radial-gradient(circle,rgba(224,138,30,.16),transparent 62%);pointer-events:none;z-index:0}
+  .inner{position:relative;z-index:1}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:20px}
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(2.8rem,13vw,4.4rem);line-height:.98;letter-spacing:-.03em;margin-bottom:18px}
+  h1 span{color:var(--accent)}
+  .lede{font-size:clamp(1.05rem,4vw,1.25rem);color:var(--ink-soft);margin-bottom:24px}
+  .lede strong{color:var(--ink);font-weight:600}
+  .badge{display:inline-flex;align-items:center;gap:9px;padding:11px 16px;border-radius:12px;
+    background:color-mix(in srgb,var(--accent) 12%,var(--paper));
+    border:1px solid color-mix(in srgb,var(--accent) 34%,var(--line));
+    font-size:14px;font-weight:500;margin-bottom:28px}
+  .badge .star{color:var(--accent)}
+  ul.facts{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+  ul.facts li{background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:8px 15px;font-size:13.5px;font-weight:500;color:var(--ink)}
+  ul.facts li b{color:var(--accent-deep);font-weight:600}
+  .links{display:flex;flex-wrap:wrap;gap:12px}
+  .links a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+    font-size:15px;font-weight:600;padding:12px 20px;border-radius:999px;
+    transition:transform .15s ease,background .18s ease,border-color .18s ease}
+  .links a.primary{background:var(--accent);color:#fff}
+  .links a.primary:hover{background:var(--accent-deep);transform:translateY(-2px)}
+  .links a.ghost{border:1px solid var(--line);color:var(--ink)}
+  .links a.ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+  @media (prefers-reduced-motion:reduce){.links a{transition:none}}
+</style>
+</head>
+<body>
+  <div class="wrap"><div class="inner">
+    <span class="eyebrow"><span class="dot"></span> Jammu, India</span>
+
+    <!-- EDIT: your name -->
+    <h1>Risheek<span>.</span></h1>
+
+    <!-- EDIT: your one-liner -->
+    <p class="lede">
+      Founder &amp; <strong>cybersecurity trainer</strong>. I started teaching ethical hacking at 15
+      and now build at the intersection of <strong>security, culture, and technology</strong>.
+    </p>
+
+    <div class="badge">
+      <span class="star">★</span>
+      Recipient, Pradhan Mantri Rashtriya Bal Puraskar (2024) — India's national child honour.
+    </div>
+
+    <ul class="facts">
+      <li><b>Founder</b> · thirdworld.io</li>
+      <li><b>Director</b> · Cultural Technologies</li>
+      <li><b>Founder</b> · Hackers Pathshala</li>
+      <li><b>Student</b> · IIT Patna</li>
+    </ul>
+
+    <div class="links">
+      <!-- EDIT: replace email -->
+      <a class="primary" href="mailto:your.email@example.com">Get in touch</a>
+      <a class="ghost" href="https://www.linkedin.com/in/viperhacks-risheek" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="ghost" href="https://prarthana.app" target="_blank" rel="noopener">Prarthana ↗</a>
+    </div>
+  </div></div>
+</body>
+</html>
