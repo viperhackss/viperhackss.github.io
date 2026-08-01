@@ -3,87 +3,956 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Risheek — Founder &amp; Cybersecurity</title>
-<meta name="description" content="Risheek — founder and cybersecurity trainer from Jammu, India. Recipient of the Pradhan Mantri Rashtriya Bal Puraskar.">
+<title>Risheek Kumar Sharma — Founder · Building for the age of AI agents</title>
+<meta name="description" content="Risheek Kumar Sharma — teenage founder from Jammu &amp; Kashmir. Recipient of the Pradhan Mantri Rashtriya Bal Puraskar. Founder of thirdworld.io, Prarthana, and Hackers Pathshala — building for the age of AI agents while reviving India's ancient wisdom.">
+<meta name="author" content="Risheek Kumar Sharma">
+<meta name="theme-color" content="#060713">
+<!-- Enable JS-only reveal states before first paint (no flash, no blank page if JS is off) -->
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://viperhackss.github.io/">
+<meta property="og:title" content="Risheek Kumar Sharma — Founder · Building for the age of AI agents">
+<meta property="og:description" content="National Child Award (Pradhan Mantri Rashtriya Bal Puraskar) recipient. Founder of thirdworld.io, Prarthana, and Hackers Pathshala.">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Inline SVG favicon (no external request) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='40%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23a7b6ff'/%3E%3Cstop offset='55%25' stop-color='%238b7bff'/%3E%3Cstop offset='100%25' stop-color='%2334e4ea'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='%23070912'/%3E%3Cpath d='M50 16l7.5 22.5H81l-18.7 13.6 7.1 22.4L50 60.9 30.6 74.5l7.1-22.4L19 38.5h23.5z' fill='url(%23g)'/%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --paper:#FBF7EF; --ink:#241C15; --ink-soft:#5C5145;
-    --accent:#E08A1E; --accent-deep:#B36A12; --line:#E7DDCB; --card:#FFFDF8;
+    --bg:#060713; --bg-2:#0a0c1c;
+    --ink:#EAEEFF; --muted:#9AA3C7; --faint:#6C7699;
+    --violet:#8B7BFF; --violet-2:#a394ff;
+    --cyan:#34E4EA; --gold:#F5B44C;
+    --line:rgba(255,255,255,.09);
+    --line-2:rgba(255,255,255,.16);
+    --card:rgba(255,255,255,.028);
+    --card-hi:rgba(255,255,255,.05);
+    --radius:18px;
+    --maxw:1180px;
+    --shadow:0 30px 80px -30px rgba(0,0,0,.8);
   }
-  *{box-sizing:border-box;margin:0;padding:0}
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden}
   body{
-    background:var(--paper);color:var(--ink);
-    font-family:'Inter',system-ui,sans-serif;line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 20px;
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
-  .wrap{width:100%;max-width:620px;position:relative}
-  .wrap::before{content:"";position:absolute;top:-120px;right:-80px;width:420px;height:420px;
-    background:radial-gradient(circle,rgba(224,138,30,.16),transparent 62%);pointer-events:none;z-index:0}
-  .inner{position:relative;z-index:1}
-  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;
-    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:20px}
-  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-  h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
-    font-size:clamp(2.8rem,13vw,4.4rem);line-height:.98;letter-spacing:-.03em;margin-bottom:18px}
-  h1 span{color:var(--accent)}
-  .lede{font-size:clamp(1.05rem,4vw,1.25rem);color:var(--ink-soft);margin-bottom:24px}
-  .lede strong{color:var(--ink);font-weight:600}
-  .badge{display:inline-flex;align-items:center;gap:9px;padding:11px 16px;border-radius:12px;
-    background:color-mix(in srgb,var(--accent) 12%,var(--paper));
-    border:1px solid color-mix(in srgb,var(--accent) 34%,var(--line));
-    font-size:14px;font-weight:500;margin-bottom:28px}
-  .badge .star{color:var(--accent)}
-  ul.facts{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
-  ul.facts li{background:var(--card);border:1px solid var(--line);border-radius:999px;
-    padding:8px 15px;font-size:13.5px;font-weight:500;color:var(--ink)}
-  ul.facts li b{color:var(--accent-deep);font-weight:600}
-  .links{display:flex;flex-wrap:wrap;gap:12px}
-  .links a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;
-    font-size:15px;font-weight:600;padding:12px 20px;border-radius:999px;
-    transition:transform .15s ease,background .18s ease,border-color .18s ease}
-  .links a.primary{background:var(--accent);color:#fff}
-  .links a.primary:hover{background:var(--accent-deep);transform:translateY(-2px)}
-  .links a.ghost{border:1px solid var(--line);color:var(--ink)}
-  .links a.ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
-  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
-  @media (prefers-reduced-motion:reduce){.links a{transition:none}}
+  h1,h2,h3{overflow-wrap:break-word}
+  /* Nebula wash behind the canvas */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
+    background:
+      radial-gradient(60% 45% at 18% 8%, rgba(139,123,255,.20), transparent 60%),
+      radial-gradient(55% 45% at 88% 12%, rgba(52,228,234,.14), transparent 62%),
+      radial-gradient(50% 50% at 50% 110%, rgba(245,180,76,.10), transparent 60%),
+      linear-gradient(180deg,#05060f 0%, #070912 45%, #05060d 100%);
+  }
+  canvas#sky{position:fixed; inset:0; z-index:-1; width:100%; height:100%; pointer-events:none; display:block}
+
+  a{color:inherit; text-decoration:none}
+  img{max-width:100%; display:block}
+  ::selection{background:rgba(139,123,255,.35); color:#fff}
+
+  .wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 24px}
+
+  /* Scroll progress bar */
+  .progress{position:fixed; top:0; left:0; height:2px; width:0; z-index:100;
+    background:linear-gradient(90deg,var(--violet),var(--cyan)); box-shadow:0 0 12px rgba(52,228,234,.6)}
+
+  /* Cursor glow (fine pointers only, non-blocking).
+     Wrapped in a fixed, clipped container so it can never cause page overflow. */
+  .glow-wrap{position:fixed; inset:0; overflow:hidden; z-index:60; pointer-events:none}
+  .cursor-glow{position:absolute; top:0; left:0; width:420px; height:420px; margin:-210px 0 0 -210px;
+    border-radius:50%; opacity:0; transition:opacity .4s ease;
+    background:radial-gradient(circle, rgba(139,123,255,.16), rgba(52,228,234,.06) 40%, transparent 68%);
+    mix-blend-mode:screen}
+
+  /* ---------- NAV ---------- */
+  header.nav{position:sticky; top:0; z-index:50; backdrop-filter:blur(12px);
+    background:linear-gradient(180deg, rgba(6,7,19,.72), rgba(6,7,19,.28)); border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .brand{display:flex; align-items:center; gap:11px; font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-.01em; font-size:16px}
+  .brand .mark{width:26px; height:26px; border-radius:8px; display:grid; place-items:center;
+    background:conic-gradient(from 210deg,var(--violet),var(--cyan),var(--gold),var(--violet));
+    box-shadow:0 0 0 1px rgba(255,255,255,.1) inset, 0 6px 18px -6px rgba(139,123,255,.7)}
+  .brand .mark svg{width:15px; height:15px}
+  .nav-links{display:flex; align-items:center; gap:6px}
+  .nav-links a{padding:8px 13px; font-size:14px; color:var(--muted); border-radius:10px; transition:color .2s, background .2s}
+  .nav-links a:hover{color:var(--ink); background:var(--card-hi)}
+  .nav-cta{margin-left:6px; padding:9px 16px !important; color:var(--ink) !important;
+    border:1px solid var(--line-2); background:var(--card) !important}
+  .nav-cta:hover{border-color:var(--violet); box-shadow:0 0 22px -6px rgba(139,123,255,.6)}
+
+  /* ---------- Shared building blocks ---------- */
+  section{position:relative; z-index:1; scroll-margin-top:84px}
+  .eyebrow{display:inline-flex; align-items:center; gap:9px; font-size:12.5px; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--muted)}
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--cyan); box-shadow:0 0 10px var(--cyan)}
+  .section-head{max-width:720px; margin-bottom:44px}
+  .section-head h2{font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-.02em;
+    font-size:clamp(1.8rem,4.4vw,2.7rem); line-height:1.08; margin:16px 0 14px}
+  .section-head p{color:var(--muted); font-size:clamp(1rem,2.2vw,1.12rem); margin:0}
+  .grad{background:linear-gradient(100deg,var(--violet-2) 0%, var(--cyan) 55%, var(--gold) 120%);
+    -webkit-background-clip:text; background-clip:text; color:transparent}
+
+  .btn{display:inline-flex; align-items:center; gap:9px; font-weight:600; font-size:15px;
+    padding:13px 22px; border-radius:999px; border:1px solid transparent; cursor:pointer;
+    transition:transform .18s ease, box-shadow .25s ease, background .2s, border-color .2s; will-change:transform}
+  .btn.primary{color:#0a0a16; background:linear-gradient(100deg,var(--violet-2),var(--cyan));
+    box-shadow:0 14px 40px -14px rgba(52,228,234,.65)}
+  .btn.primary:hover{transform:translateY(-2px); box-shadow:0 20px 48px -14px rgba(139,123,255,.8)}
+  .btn.ghost{color:var(--ink); border-color:var(--line-2); background:var(--card)}
+  .btn.ghost:hover{border-color:var(--violet); transform:translateY(-2px); box-shadow:0 0 26px -8px rgba(139,123,255,.6)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--cyan); outline-offset:3px; border-radius:12px}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:clamp(70px,12vh,130px) 0 clamp(60px,9vh,96px)}
+  .hero .badge{display:inline-flex; align-items:center; gap:10px; padding:8px 15px; border-radius:999px;
+    font-size:13px; font-weight:500; color:var(--ink); margin-bottom:26px;
+    background:linear-gradient(180deg, rgba(245,180,76,.14), rgba(245,180,76,.05));
+    border:1px solid rgba(245,180,76,.32)}
+  .hero .badge .star{color:var(--gold)}
+  h1.title{font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-.03em;
+    font-size:clamp(2.3rem,8vw,5.4rem); line-height:1; margin:0 0 22px; overflow-wrap:break-word}
+  .hero .lede{font-size:clamp(1.08rem,2.6vw,1.42rem); color:var(--muted); max-width:640px; margin:0 0 18px}
+  .hero .lede strong{color:var(--ink); font-weight:600}
+  .hero .sub{font-size:clamp(.98rem,2vw,1.06rem); color:var(--faint); max-width:600px; margin:0 0 32px}
+  .hero .cta-row{display:flex; flex-wrap:wrap; gap:13px; margin-bottom:46px}
+  .recog{border-top:1px solid var(--line); padding-top:22px}
+  .recog .lbl{font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--faint); margin-bottom:13px}
+  .recog ul{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:10px 26px; align-items:center}
+  .recog li{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:#c3cbe8;
+    display:flex; align-items:center; gap:9px}
+  .recog li::before{content:""; width:6px; height:6px; border-radius:50%;
+    background:linear-gradient(var(--violet),var(--cyan))}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:start}
+  .about-body p{color:#c6cde6; font-size:1.05rem; margin:0 0 18px}
+  .about-body p strong{color:#fff; font-weight:600}
+  .about-body .pquote{margin:26px 0 0; padding:18px 22px; border-left:2px solid var(--violet);
+    background:linear-gradient(90deg, rgba(139,123,255,.08), transparent);
+    border-radius:0 12px 12px 0; color:var(--ink); font-size:1.06rem; font-style:italic}
+  .portrait{position:relative}
+  .frame{position:relative; border-radius:var(--radius); overflow:hidden; border:1px solid var(--line-2);
+    background:var(--card); box-shadow:var(--shadow)}
+  .frame::after{content:""; position:absolute; inset:0; pointer-events:none;
+    box-shadow:inset 0 0 60px rgba(0,0,0,.5); border-radius:var(--radius)}
+  /* Placeholder shown until a real photo is dropped in */
+  .frame .ph{position:absolute; inset:0; display:grid; place-content:center; place-items:center; gap:12px;
+    text-align:center; padding:26px;
+    background:
+      radial-gradient(120% 80% at 50% 0%, rgba(139,123,255,.18), transparent 60%),
+      linear-gradient(160deg,#0d1024,#0a0c1a)}
+  .frame .ph svg{width:40px; height:40px; opacity:.85}
+  .frame .ph .cap{font-size:13px; color:var(--muted); max-width:230px; line-height:1.5}
+  .frame .ph .tag{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint)}
+  .frame img{position:relative; z-index:1; width:100%; height:100%; object-fit:cover; display:block}
+  .frame.empty img{display:none}
+  .portrait .frame{aspect-ratio:4/5}
+  .portrait .cap-under{margin-top:14px; font-size:13px; color:var(--faint); text-align:center}
+
+  /* ---------- VENTURES ---------- */
+  .ventures-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+  .venture{position:relative; padding:30px 26px 28px; border-radius:var(--radius); border:1px solid var(--line);
+    background:var(--card); overflow:hidden; transition:transform .25s ease, border-color .25s ease, background .25s ease;
+    transform-style:preserve-3d; will-change:transform}
+  .venture::before{content:""; position:absolute; inset:0; opacity:0; transition:opacity .3s;
+    background:radial-gradient(90% 60% at 50% -10%, var(--glow,rgba(139,123,255,.18)), transparent 70%)}
+  .venture:hover{border-color:var(--line-2); background:var(--card-hi)}
+  .venture:hover::before{opacity:1}
+  .venture .vtop{display:flex; align-items:center; justify-content:space-between; margin-bottom:20px}
+  .venture .vicon{width:46px; height:46px; border-radius:13px; display:grid; place-items:center;
+    background:var(--iconbg,linear-gradient(140deg,#151a34,#0e1122)); border:1px solid var(--line-2)}
+  .venture .vicon svg{width:23px; height:23px}
+  .venture .vstage{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint);
+    border:1px solid var(--line); padding:5px 10px; border-radius:999px}
+  .venture h3{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.34rem; margin:0 0 4px; letter-spacing:-.01em}
+  .venture .vtag{font-size:13.5px; font-weight:600; color:var(--accentc); margin:0 0 14px}
+  .venture p{color:var(--muted); font-size:.97rem; margin:0 0 18px; position:relative; z-index:1}
+  .venture .chips{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:18px}
+  .venture .chips span{font-size:11.5px; color:#b9c1e0; background:rgba(255,255,255,.04);
+    border:1px solid var(--line); border-radius:999px; padding:4px 11px}
+  .venture .vlink{display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:600;
+    color:var(--ink); position:relative; z-index:1}
+  .venture .vlink .arrow{transition:transform .2s}
+  .venture:hover .vlink .arrow{transform:translate(3px,-3px)}
+
+  /* ---------- IMPACT ---------- */
+  .impact{padding:14px 0}
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+  .stat{padding:30px 24px; border-radius:var(--radius); border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012)); text-align:left}
+  .stat .num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(2.2rem,5vw,3rem);
+    line-height:1; letter-spacing:-.02em}
+  .stat .num.g{background:linear-gradient(120deg,var(--violet-2),var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .stat .num.gold{color:var(--gold)}
+  .stat .lbl{margin-top:10px; color:var(--muted); font-size:.95rem; line-height:1.45}
+
+  /* ---------- PRESS ---------- */
+  .press-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+  .press{display:flex; flex-direction:column; gap:8px; padding:20px 20px; border-radius:14px;
+    border:1px solid var(--line); background:var(--card); transition:transform .2s, border-color .2s, background .2s}
+  .press:hover{transform:translateY(-3px); border-color:var(--line-2); background:var(--card-hi)}
+  .press .src{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; color:var(--ink); display:flex; align-items:center; gap:8px}
+  .press .src .arr{margin-left:auto; color:var(--faint); transition:transform .2s, color .2s}
+  .press:hover .src .arr{transform:translate(2px,-2px); color:var(--cyan)}
+  .press .headline{font-size:13px; color:var(--muted); line-height:1.5}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{display:grid; grid-template-columns:repeat(6,1fr); gap:16px}
+  .gitem{grid-column:span 2}
+  .gitem.wide{grid-column:span 3}
+  .gitem .frame{aspect-ratio:4/3}
+  .gitem figcaption{margin-top:11px; font-size:13px; color:var(--muted); line-height:1.5}
+  .gallery figure{margin:0}
+  .gnote{margin-top:22px; font-size:13px; color:var(--faint); display:flex; align-items:center; gap:9px}
+  .gnote code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; color:#c9d1f0;
+    background:rgba(255,255,255,.05); border:1px solid var(--line); padding:2px 7px; border-radius:6px}
+
+  /* ---------- CONTACT ---------- */
+  .contact{padding:clamp(60px,10vh,110px) 0}
+  .contact-card{position:relative; overflow:hidden; border-radius:26px; border:1px solid var(--line-2);
+    padding:clamp(38px,6vw,64px); text-align:center;
+    background:
+      radial-gradient(90% 120% at 50% -20%, rgba(139,123,255,.22), transparent 60%),
+      linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.01))}
+  .contact-card h2{font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-.02em;
+    font-size:clamp(1.9rem,5vw,3.1rem); line-height:1.05; margin:0 auto 16px; max-width:14ch}
+  .contact-card p{color:var(--muted); font-size:1.08rem; max-width:520px; margin:0 auto 30px}
+  .contact-card .cta-row{display:flex; flex-wrap:wrap; gap:13px; justify-content:center}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line); margin-top:40px; padding:34px 0 46px}
+  .foot-inner{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:18px}
+  .foot-inner .brand{font-size:15px}
+  .foot-links{display:flex; flex-wrap:wrap; gap:20px}
+  .foot-links a{font-size:14px; color:var(--muted); transition:color .2s}
+  .foot-links a:hover{color:var(--ink)}
+  .copy{width:100%; font-size:12.5px; color:var(--faint); margin-top:8px}
+
+  .divider{max-width:var(--maxw); margin:0 auto; height:1px;
+    background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+  /* Section vertical rhythm */
+  .pad{padding:clamp(64px,10vh,110px) 0}
+
+  /* ---------- Reveal on scroll (progressive enhancement) ----------
+     Hidden state only applies when JS is active (html.js), so the page is
+     fully visible even if JavaScript never runs. */
+  .js [data-reveal]{opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js [data-reveal].in{opacity:1; transform:none}
+  .js [data-reveal][data-delay="1"]{transition-delay:.08s}
+  .js [data-reveal][data-delay="2"]{transition-delay:.16s}
+  .js [data-reveal][data-delay="3"]{transition-delay:.24s}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1000px){
+    /* Let the hero headline wrap naturally instead of the desktop forced breaks */
+    .title br{display:none}
+    .about-grid{grid-template-columns:1fr; gap:34px}
+    .portrait{max-width:420px}
+    .ventures-grid{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .press-grid{grid-template-columns:repeat(2,1fr)}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .gitem,.gitem.wide{grid-column:span 1}
+  }
+  @media (max-width:640px){
+    .nav-links{display:none}
+    .stats{grid-template-columns:1fr}
+    .press-grid{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr}
+    .wrap{padding:0 18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important; animation:none !important}
+    .js [data-reveal],[data-reveal]{opacity:1 !important; transform:none !important}
+  }
 </style>
 </head>
 <body>
-  <div class="wrap"><div class="inner">
-    <span class="eyebrow"><span class="dot"></span> Jammu, India</span>
 
-    <!-- EDIT: your name -->
-    <h1>Risheek<span>.</span></h1>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="glow-wrap" aria-hidden="true"><div class="cursor-glow" id="glow"></div></div>
+<canvas id="sky" aria-hidden="true"></canvas>
 
-    <!-- EDIT: your one-liner -->
-    <p class="lede">
-      Founder &amp; <strong>cybersecurity trainer</strong>. I started teaching ethical hacking at 15
-      and now build at the intersection of <strong>security, culture, and technology</strong>.
-    </p>
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Risheek Kumar Sharma — home">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#0a0a16"><path d="M12 2l2.9 8.6H24l-7.2 5.2 2.7 8.6L12 19.1 4.5 24.4l2.7-8.6L0 10.6h9.1z"/></svg>
+      </span>
+      Risheek&nbsp;K.&nbsp;Sharma
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#ventures">Ventures</a>
+      <a href="#impact">Impact</a>
+      <a href="#press">Press</a>
+      <a class="nav-cta" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
 
-    <div class="badge">
-      <span class="star">★</span>
-      Recipient, Pradhan Mantri Rashtriya Bal Puraskar (2024) — India's national child honour.
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge" data-reveal>
+        <span class="star">★</span>
+        Pradhan Mantri Rashtriya Bal Puraskar — conferred by the President of India
+      </span>
+      <h1 class="title" data-reveal data-delay="1">
+        Building for the age of <br><span class="grad">AI agents</span> — powered by <br>humanity's oldest wisdom.
+      </h1>
+      <p class="lede" data-reveal data-delay="2">
+        I'm <strong>Risheek Kumar Sharma</strong> — a founder from Jammu &amp; Kashmir. I build
+        <strong>thirdworld.io</strong>, <strong>Prarthana</strong>, and <strong>Hackers Pathshala</strong>,
+        working at the intersection of <strong>AI, ancient science, and security</strong>.
+      </p>
+      <p class="sub" data-reveal data-delay="2">
+        From training 5,000+ children in cyber-safety to designing the operating layer for AI agents —
+        I like starting things that shouldn't be possible yet.
+      </p>
+      <div class="cta-row" data-reveal data-delay="3">
+        <a class="btn primary" href="#ventures">Explore my ventures →</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/viperhacks-risheek/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <div class="recog" data-reveal data-delay="3">
+        <div class="lbl">Recognized &amp; trusted by</div>
+        <ul>
+          <li>President of India</li>
+          <li>PM Narendra Modi</li>
+          <li>Indian Army · Northern Command</li>
+          <li>Sher-i-Kashmir Police Academy</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-    <ul class="facts">
-      <li><b>Founder</b> · thirdworld.io</li>
-      <li><b>Director</b> · Cultural Technologies</li>
-      <li><b>Founder</b> · Hackers Pathshala</li>
-      <li><b>Student</b> · IIT Patna</li>
-    </ul>
+  <div class="divider"></div>
 
-    <div class="links">
-      <!-- EDIT: replace email -->
-      <a class="primary" href="mailto:your.email@example.com">Get in touch</a>
-      <a class="ghost" href="https://www.linkedin.com/in/viperhacks-risheek" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a class="ghost" href="https://prarthana.app" target="_blank" rel="noopener">Prarthana ↗</a>
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="pad">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-body">
+          <div class="section-head" style="margin-bottom:26px">
+            <span class="eyebrow"><span class="dot"></span> About me</span>
+            <h2>From a small town in Samba to <span class="grad">Rashtrapati Bhavan.</span></h2>
+          </div>
+          <p data-reveal>
+            I grew up in <strong>Smailpur, Samba (Jammu &amp; Kashmir)</strong> and started in ethical hacking
+            as a teenager. What began as curiosity turned into a mission: make ordinary people — children,
+            women, and the officers who protect them — safe in a digital world moving faster than anyone can teach.
+          </p>
+          <p data-reveal>
+            I founded <strong>Hackers Pathshala</strong>, Jammu &amp; Kashmir's first cybersecurity company.
+            Through it I've trained <strong>5,000+ children</strong> across the country in cyber-safety and
+            upskilled <strong>100+ police officers</strong> at the Sher-i-Kashmir Police Academy in modern
+            cybercrime investigation. My work has supported the <strong>Indian Army's Northern Command</strong>
+            on cyber counter-intelligence, and I launched the nationwide <strong>Hack Free Bharat</strong> initiative.
+          </p>
+          <p data-reveal>
+            In December 2024, <strong>President Droupadi Murmu</strong> conferred on me the
+            <strong>Pradhan Mantri Rashtriya Bal Puraskar</strong> — India's highest civilian honour for children —
+            in the Science &amp; Technology category. Today I'm building <strong>thirdworld.io</strong>, the
+            operating layer for AI agents, and <strong>Prarthana</strong>, which brings India's ancient
+            scriptures to modern wellbeing.
+          </p>
+          <p class="pquote" data-reveal>
+            “I want to leave behind technology that protects people and wisdom that heals them — built from
+            India, for the world.”
+          </p>
+        </div>
+
+        <div class="portrait" data-reveal data-delay="1">
+          <figure class="frame empty" style="margin:0">
+            <img src="assets/img/portrait.jpg" alt="Portrait of Risheek Kumar Sharma"
+                 loading="lazy" onerror="this.closest('.frame').classList.add('empty')">
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="url(#pg)" stroke-width="1.4">
+                <defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#8B7BFF"/><stop offset="1" stop-color="#34E4EA"/></linearGradient></defs>
+                <circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0115 0"/>
+              </svg>
+              <span class="cap">Add <code style="font-size:11px">portrait.jpg</code> to <code style="font-size:11px">/assets/img</code></span>
+              <span class="tag">Your portrait</span>
+            </div>
+          </figure>
+          <div class="cap-under">Risheek Kumar Sharma · Founder &amp; National Child Award recipient</div>
+        </div>
+      </div>
     </div>
-  </div></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============ VENTURES ============ -->
+  <section id="ventures" class="pad">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow"><span class="dot"></span> What I'm building</span>
+        <h2>Three ventures, one thesis: <span class="grad">technology that serves people.</span></h2>
+        <p>From the operating layer for AI agents, to ancient wisdom for modern health, to a safer digital India.</p>
+      </div>
+
+      <div class="ventures-grid">
+        <!-- thirdworld.io -->
+        <article class="venture" data-reveal style="--glow:rgba(139,123,255,.20); --accentc:var(--violet-2)">
+          <div class="vtop">
+            <span class="vicon" style="--iconbg:linear-gradient(140deg,#1a1640,#0e0c22)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#a394ff" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="9"/>
+                <path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+            </span>
+            <span class="vstage">Building now</span>
+          </div>
+          <h3>thirdworld.io</h3>
+          <p class="vtag">Clothes for AI agents.</p>
+          <p>
+            The move from conventional SaaS to <strong>AyaS — AI at Your Service</strong>: from home to office,
+            and from office to every employee. We're building the operating layer that lets AI agents actually
+            get real work done.
+          </p>
+          <div class="chips"><span>AI agents</span><span>Infrastructure</span><span>Future of work</span></div>
+          <a class="vlink" href="https://thirdworld.io" target="_blank" rel="noopener">Visit thirdworld.io <span class="arrow">↗</span></a>
+        </article>
+
+        <!-- Prarthana -->
+        <article class="venture" data-reveal data-delay="1" style="--glow:rgba(245,180,76,.20); --accentc:var(--gold)">
+          <div class="vtop">
+            <span class="vicon" style="--iconbg:linear-gradient(140deg,#2a2010,#161006)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F5B44C" stroke-width="1.5">
+                <path d="M12 3c2 3 2 4 0 7-2-3-2-4 0-7z"/><path d="M5 21c1.5-4 4-6 7-6s5.5 2 7 6"/>
+                <path d="M12 10v11"/></svg>
+            </span>
+            <span class="vstage">In development</span>
+          </div>
+          <h3>Prarthana</h3>
+          <p class="vtag">Ancient wisdom, modern wellbeing.</p>
+          <p>
+            Making human life better by presenting India's ancient scriptures and artefact knowledge —
+            helping people with <strong>mental health, fitness, and lifestyle</strong> through undiscovered
+            Vedic science. Praised by <strong>PM Narendra Modi</strong>.
+          </p>
+          <div class="chips"><span>Wellbeing</span><span>Culture-tech</span><span>Vedic science</span></div>
+          <a class="vlink" href="https://prarthana.app" target="_blank" rel="noopener">Visit prarthana.app <span class="arrow">↗</span></a>
+        </article>
+
+        <!-- Hackers Pathshala -->
+        <article class="venture" data-reveal data-delay="2" style="--glow:rgba(52,228,234,.18); --accentc:var(--cyan)">
+          <div class="vtop">
+            <span class="vicon" style="--iconbg:linear-gradient(140deg,#0d2530,#08161c)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#34E4EA" stroke-width="1.5">
+                <path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9.5 12l2 2 3.5-3.5"/></svg>
+            </span>
+            <span class="vstage">Founded &amp; scaling</span>
+          </div>
+          <h3>Hackers Pathshala</h3>
+          <p class="vtag">J&amp;K's first cybersecurity company.</p>
+          <p>
+            Protecting children and women against cybercrime — <strong>5,000+ children</strong> trained across
+            tier-1 cities, <strong>100+ police officers</strong> upskilled at the state academy, and the
+            <strong>Hack Free Bharat</strong> mission for a safer digital India.
+          </p>
+          <div class="chips"><span>Cybersecurity</span><span>Education</span><span>National impact</span></div>
+          <a class="vlink" href="https://www.linkedin.com/in/viperhacks-risheek/" target="_blank" rel="noopener">Learn more <span class="arrow">↗</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============ IMPACT ============ -->
+  <section id="impact" class="pad impact">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow"><span class="dot"></span> Impact so far</span>
+        <h2>Numbers that started as a <span class="grad">teenager's side project.</span></h2>
+      </div>
+      <div class="stats">
+        <div class="stat" data-reveal>
+          <div class="num g" data-count="5000" data-suffix="+">0</div>
+          <div class="lbl">Children trained in cyber-safety across India</div>
+        </div>
+        <div class="stat" data-reveal data-delay="1">
+          <div class="num g" data-count="100" data-suffix="+">0</div>
+          <div class="lbl">Police officers upskilled at Sher-i-Kashmir Police Academy</div>
+        </div>
+        <div class="stat" data-reveal data-delay="2">
+          <div class="num gold">★</div>
+          <div class="lbl">PM Rashtriya Bal Puraskar '25 — Science &amp; Technology</div>
+        </div>
+        <div class="stat" data-reveal data-delay="3">
+          <div class="num g" data-count="3" data-suffix="">0</div>
+          <div class="lbl">Ventures building the future — AI, wellbeing &amp; security</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============ PRESS ============ -->
+  <section id="press" class="pad">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow"><span class="dot"></span> In the news</span>
+        <h2>Coverage &amp; <span class="grad">recognition.</span></h2>
+        <p>Selected press about the award, Hackers Pathshala, and the work.</p>
+      </div>
+      <div class="press-grid">
+        <a class="press" href="https://x.com/MinistryWCD/status/1876199666536362371" target="_blank" rel="noopener" data-reveal>
+          <span class="src">Ministry of WCD <span class="arr">↗</span></span>
+          <span class="headline">Govt. of India spotlights Risheek, 17 — founder of J&amp;K's first cybersecurity company.</span>
+        </a>
+        <a class="press" href="https://www.thestatesman.com/india/from-saving-lives-to-setting-world-records-17-children-receive-pradhan-mantri-bal-puraskar-1503379970.html" target="_blank" rel="noopener" data-reveal data-delay="1">
+          <span class="src">The Statesman <span class="arr">↗</span></span>
+          <span class="headline">17 children receive the Pradhan Mantri Bal Puraskar from the President.</span>
+        </a>
+        <a class="press" href="https://www.greaterkashmir.com/front-page-2/ayaan-risheek-from-jk-among-17-awarded-bal-puraskar-by-president-murmu/" target="_blank" rel="noopener" data-reveal data-delay="2">
+          <span class="src">Greater Kashmir <span class="arr">↗</span></span>
+          <span class="headline">Risheek from J&amp;K among 17 awarded Bal Puraskar by President Murmu.</span>
+        </a>
+        <a class="press" href="https://scienceindiamag.in/a-young-cyber-sentry/" target="_blank" rel="noopener" data-reveal data-delay="3">
+          <span class="src">Science India <span class="arr">↗</span></span>
+          <span class="headline">“A Young Cyber Sentry” — the story of a teenage cybersecurity founder.</span>
+        </a>
+        <a class="press" href="https://kashmirlife.net/jammu-kashmirs-risheek-kumar-receives-bal-puraskar-by-president-murmu-377547/" target="_blank" rel="noopener" data-reveal>
+          <span class="src">Kashmir Life <span class="arr">↗</span></span>
+          <span class="headline">J&amp;K's Risheek Kumar receives Bal Puraskar from President Murmu.</span>
+        </a>
+        <a class="press" href="https://www.dailyexcelsior.com/risheek-from-samba-ayaan-from-anantnag-conferred-prestigious-pmrbp/" target="_blank" rel="noopener" data-reveal data-delay="1">
+          <span class="src">Daily Excelsior <span class="arr">↗</span></span>
+          <span class="headline">Risheek from Samba conferred the prestigious PMRBP.</span>
+        </a>
+        <a class="press" href="https://statetimes.in/prez-confers-pradhan-mantri-rashtriya-bal-puraskar-on-risheek-sharma-of-samba/" target="_blank" rel="noopener" data-reveal data-delay="2">
+          <span class="src">State Times <span class="arr">↗</span></span>
+          <span class="headline">President confers Pradhan Mantri Rashtriya Bal Puraskar on Risheek Sharma.</span>
+        </a>
+        <a class="press" href="https://indiabookofrecords.in/risheek-kumar/" target="_blank" rel="noopener" data-reveal data-delay="3">
+          <span class="src">India Book of Records <span class="arr">↗</span></span>
+          <span class="headline">Recognized for record-setting work in cybersecurity education.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="gallery" class="pad">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow"><span class="dot"></span> Moments</span>
+        <h2>A few <span class="grad">defining moments.</span></h2>
+        <p>Drop your photos into <code style="font-family:ui-monospace,monospace;font-size:.85em">/assets/img</code> and they appear here automatically.</p>
+      </div>
+
+      <div class="gallery">
+        <figure class="gitem wide" data-reveal>
+          <div class="frame empty">
+            <img src="assets/img/president.jpg" loading="lazy"
+                 alt="Risheek Kumar Sharma receiving the Pradhan Mantri Rashtriya Bal Puraskar from President Droupadi Murmu"
+                 onerror="this.closest('.frame').classList.add('empty')">
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="url(#pg)" stroke-width="1.4"><path d="M4 8h16v11H4z"/><path d="M9 8V5h6v3"/><circle cx="12" cy="13.5" r="2.5"/></svg>
+              <span class="cap">With Hon'ble President Droupadi Murmu</span>
+              <span class="tag">president.jpg</span>
+            </div>
+          </div>
+          <figcaption>Receiving the Pradhan Mantri Rashtriya Bal Puraskar from Hon'ble President Droupadi Murmu at Rashtrapati Bhavan.</figcaption>
+        </figure>
+
+        <figure class="gitem" data-reveal data-delay="1">
+          <div class="frame empty">
+            <img src="assets/img/pm-modi.jpg" loading="lazy"
+                 alt="Risheek Kumar Sharma with Prime Minister Narendra Modi"
+                 onerror="this.closest('.frame').classList.add('empty')">
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="url(#pg)" stroke-width="1.4"><circle cx="12" cy="8.5" r="3.2"/><path d="M5 20a7 7 0 0114 0"/></svg>
+              <span class="cap">With Hon'ble PM Narendra Modi</span>
+              <span class="tag">pm-modi.jpg</span>
+            </div>
+          </div>
+          <figcaption>With Hon'ble Prime Minister Narendra Modi.</figcaption>
+        </figure>
+
+        <figure class="gitem" data-reveal data-delay="2">
+          <div class="frame empty">
+            <img src="assets/img/academy.jpg" loading="lazy"
+                 alt="Risheek training police officers at the Sher-i-Kashmir Police Academy"
+                 onerror="this.closest('.frame').classList.add('empty')">
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="url(#pg)" stroke-width="1.4"><path d="M12 3l9 4-9 4-9-4z"/><path d="M6 10v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
+              <span class="cap">Training officers at SKPA</span>
+              <span class="tag">academy.jpg</span>
+            </div>
+          </div>
+          <figcaption>Training officers at the Sher-i-Kashmir Police Academy.</figcaption>
+        </figure>
+
+        <figure class="gitem" data-reveal>
+          <div class="frame empty">
+            <img src="assets/img/students.jpg" loading="lazy"
+                 alt="Risheek leading a cyber-safety workshop with school students"
+                 onerror="this.closest('.frame').classList.add('empty')">
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="url(#pg)" stroke-width="1.4"><circle cx="8" cy="9" r="2.4"/><circle cx="16" cy="9" r="2.4"/><path d="M3 19a5 5 0 019-3 5 5 0 019 3"/></svg>
+              <span class="cap">Cyber-safety workshop with students</span>
+              <span class="tag">students.jpg</span>
+            </div>
+          </div>
+          <figcaption>One of many cyber-safety workshops with students.</figcaption>
+        </figure>
+
+        <figure class="gitem wide" data-reveal data-delay="1">
+          <div class="frame empty">
+            <img src="assets/img/summit.jpg" loading="lazy"
+                 alt="Risheek Sharma honored at the FutureCrime Summit"
+                 onerror="this.closest('.frame').classList.add('empty')">
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="url(#pg)" stroke-width="1.4"><path d="M5 21h14M7 21V10l5-4 5 4v11"/><path d="M10 21v-5h4v5"/></svg>
+              <span class="cap">Honored at the FutureCrime Summit</span>
+              <span class="tag">summit.jpg</span>
+            </div>
+          </div>
+          <figcaption>Honored for cybercrime research at the FutureCrime Summit.</figcaption>
+        </figure>
+      </div>
+
+      <div class="gnote">
+        <span>✦</span>
+        <span>Tip: name each photo exactly as shown (e.g. <code>president.jpg</code>) and place it in the <code>assets/img</code> folder — no code changes needed.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-card" data-reveal>
+        <span class="eyebrow" style="justify-content:center; margin-bottom:16px"><span class="dot"></span> Let's talk</span>
+        <h2>Let's build the <span class="grad">future — together.</span></h2>
+        <p>Working on AI agents, culture-tech, cybersecurity, or backing bold founders from India? I'd love to hear from you.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="mailto:risheek8307@gmail.com">Email me →</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/viperhacks-risheek/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#0a0a16"><path d="M12 2l2.9 8.6H24l-7.2 5.2 2.7 8.6L12 19.1 4.5 24.4l2.7-8.6L0 10.6h9.1z"/></svg>
+      </span>
+      Risheek K. Sharma
+    </a>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#about">About</a>
+      <a href="#ventures">Ventures</a>
+      <a href="https://thirdworld.io" target="_blank" rel="noopener">thirdworld.io ↗</a>
+      <a href="https://prarthana.app" target="_blank" rel="noopener">prarthana.app ↗</a>
+      <a href="https://www.linkedin.com/in/viperhacks-risheek/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </nav>
+    <div class="copy">© <span id="yr"></span> Risheek Kumar Sharma · Jammu &amp; Kashmir, India · Building from India, for the world.</div>
+  </div>
+</footer>
+
+<!-- Structured data for search engines -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Risheek Kumar Sharma",
+  "jobTitle":"Founder",
+  "url":"https://viperhackss.github.io/",
+  "sameAs":["https://www.linkedin.com/in/viperhacks-risheek/","https://thirdworld.io","https://prarthana.app"],
+  "award":"Pradhan Mantri Rashtriya Bal Puraskar (2025)",
+  "nationality":"Indian",
+  "homeLocation":{"@type":"Place","name":"Samba, Jammu & Kashmir, India"}
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* ---------- Footer year ---------- */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ---------- Scroll progress ---------- */
+  var progress = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0;
+    progress.style.width = (p*100).toFixed(2) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- Reveal on scroll ---------- */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  if (reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- Count-up stats ---------- */
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var dur = 1500, start = null;
+    function fmt(n){ return Math.round(n).toLocaleString('en-IN') + suffix; }
+    function step(ts){
+      if (start === null) start = ts;
+      var t = Math.min((ts - start)/dur, 1);
+      var eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+      el.textContent = fmt(target * eased);
+      if (t < 1) requestAnimationFrame(step);
+      else el.textContent = fmt(target);
+    }
+    requestAnimationFrame(step);
+  }
+  var counters = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+  if (reduce || !('IntersectionObserver' in window)){
+    counters.forEach(function(el){
+      var suffix = el.getAttribute('data-suffix') || '';
+      el.textContent = parseFloat(el.getAttribute('data-count')).toLocaleString('en-IN') + suffix;
+    });
+  } else {
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ animateCount(e.target); cio.unobserve(e.target); }
+      });
+    }, {threshold:0.5});
+    counters.forEach(function(el){ cio.observe(el); });
+  }
+
+  /* ---------- Cursor glow + magnetic buttons + card tilt (fine pointers) ---------- */
+  if (fine && !reduce){
+    var glow = document.getElementById('glow');
+    var gx=0, gy=0, cx=0, cy=0, glowing=false;
+    document.addEventListener('pointermove', function(e){
+      gx = e.clientX; gy = e.clientY;
+      if (!glowing){ glow.style.opacity = '1'; glowing = true; }
+    });
+    (function glowLoop(){
+      cx += (gx - cx)*0.16; cy += (gy - cy)*0.16;
+      glow.style.transform = 'translate('+cx+'px,'+cy+'px)';
+      requestAnimationFrame(glowLoop);
+    })();
+
+    // Subtle 3D tilt on venture cards
+    document.querySelectorAll('.venture').forEach(function(card){
+      card.addEventListener('pointermove', function(e){
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left)/r.width - 0.5;
+        var py = (e.clientY - r.top)/r.height - 0.5;
+        card.style.transform = 'perspective(900px) rotateX('+(-py*5).toFixed(2)+'deg) rotateY('+(px*6).toFixed(2)+'deg) translateY(-4px)';
+      });
+      card.addEventListener('pointerleave', function(){ card.style.transform = ''; });
+    });
+  }
+
+  /* ================= COSMIC BACKGROUND ================= */
+  var canvas = document.getElementById('sky');
+  var ctx = canvas.getContext('2d');
+  var W=0, H=0, dpr=1;
+  var stars=[], nodes=[], shooters=[];
+  var mouse = {x:-9999, y:-9999};
+
+  function rand(a,b){ return a + Math.random()*(b-a); }
+
+  function build(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    // Only size the drawing buffer; CSS (position:fixed; inset:0) governs display size,
+    // so the canvas can never be wider than the viewport.
+    canvas.width = Math.floor(W*dpr);
+    canvas.height = Math.floor(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+
+    // Twinkling background stars
+    var starCount = Math.min(Math.round(W*H/6500), 260);
+    stars = [];
+    for (var i=0;i<starCount;i++){
+      stars.push({
+        x:Math.random()*W, y:Math.random()*H,
+        r:rand(0.4,1.5), base:rand(0.25,0.9),
+        tw:rand(0.6,2.2), ph:Math.random()*Math.PI*2,
+        hue: Math.random()<0.5 ? '#cfd6ff' : (Math.random()<0.5 ? '#a7f0f5' : '#ffe6c2')
+      });
+    }
+    // Constellation nodes
+    var nodeCount = Math.max(28, Math.min(Math.round(W*H/24000), 120));
+    if (W < 640) nodeCount = Math.min(nodeCount, 46);
+    nodes = [];
+    for (var j=0;j<nodeCount;j++){
+      nodes.push({
+        x:Math.random()*W, y:Math.random()*H,
+        vx:rand(-0.14,0.14), vy:rand(-0.14,0.14),
+        r:rand(1.0,2.1)
+      });
+    }
+  }
+
+  var LINK = 128;      // node-to-node link distance
+  var MOUSE_LINK = 190;// node-to-mouse link distance
+
+  function drawStatic(){
+    ctx.clearRect(0,0,W,H);
+    for (var i=0;i<stars.length;i++){
+      var s=stars[i];
+      ctx.globalAlpha = s.base;
+      ctx.fillStyle = s.hue;
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    // faint static links
+    for (var a=0;a<nodes.length;a++){
+      for (var b=a+1;b<nodes.length;b++){
+        var dx=nodes[a].x-nodes[b].x, dy=nodes[a].y-nodes[b].y;
+        var d=Math.sqrt(dx*dx+dy*dy);
+        if (d<LINK){
+          ctx.strokeStyle='rgba(139,123,255,'+(0.12*(1-d/LINK)).toFixed(3)+')';
+          ctx.lineWidth=1;
+          ctx.beginPath(); ctx.moveTo(nodes[a].x,nodes[a].y); ctx.lineTo(nodes[b].x,nodes[b].y); ctx.stroke();
+        }
+      }
+    }
+  }
+
+  var t=0;
+  function frame(){
+    t += 0.016;
+    ctx.clearRect(0,0,W,H);
+
+    // Stars with twinkle
+    for (var i=0;i<stars.length;i++){
+      var s=stars[i];
+      var a = s.base + Math.sin(t*s.tw + s.ph)*0.28;
+      if (a<0) a=0; if (a>1) a=1;
+      ctx.globalAlpha = a;
+      ctx.fillStyle = s.hue;
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    // Move + wrap nodes
+    for (var n=0;n<nodes.length;n++){
+      var p=nodes[n];
+      p.x+=p.vx; p.y+=p.vy;
+      if (p.x<-20) p.x=W+20; else if (p.x>W+20) p.x=-20;
+      if (p.y<-20) p.y=H+20; else if (p.y>H+20) p.y=-20;
+    }
+
+    // Node-to-node links
+    for (var a2=0;a2<nodes.length;a2++){
+      var pa=nodes[a2];
+      for (var b2=a2+1;b2<nodes.length;b2++){
+        var pb=nodes[b2];
+        var dx=pa.x-pb.x, dy=pa.y-pb.y;
+        var d2=dx*dx+dy*dy;
+        if (d2<LINK*LINK){
+          var d=Math.sqrt(d2);
+          var al=0.16*(1-d/LINK);
+          ctx.strokeStyle='rgba(140,150,255,'+al.toFixed(3)+')';
+          ctx.lineWidth=1;
+          ctx.beginPath(); ctx.moveTo(pa.x,pa.y); ctx.lineTo(pb.x,pb.y); ctx.stroke();
+        }
+      }
+      // Node-to-mouse links (interactive)
+      var mdx=pa.x-mouse.x, mdy=pa.y-mouse.y;
+      var md2=mdx*mdx+mdy*mdy;
+      if (md2<MOUSE_LINK*MOUSE_LINK){
+        var md=Math.sqrt(md2);
+        var mal=0.5*(1-md/MOUSE_LINK);
+        ctx.strokeStyle='rgba(52,228,234,'+mal.toFixed(3)+')';
+        ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(pa.x,pa.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke();
+        // gentle pull toward cursor
+        pa.x -= mdx/md * 0.35 * (1-md/MOUSE_LINK);
+        pa.y -= mdy/md * 0.35 * (1-md/MOUSE_LINK);
+      }
+      // Node dot
+      ctx.fillStyle='rgba(190,198,255,0.85)';
+      ctx.beginPath(); ctx.arc(pa.x,pa.y,pa.r,0,Math.PI*2); ctx.fill();
+    }
+
+    // Shooting stars
+    for (var sh=shooters.length-1; sh>=0; sh--){
+      var st=shooters[sh];
+      st.x+=st.vx; st.y+=st.vy; st.life-=1;
+      var grad=ctx.createLinearGradient(st.x,st.y,st.x-st.vx*8,st.y-st.vy*8);
+      grad.addColorStop(0,'rgba(255,255,255,0.9)');
+      grad.addColorStop(1,'rgba(255,255,255,0)');
+      ctx.strokeStyle=grad; ctx.lineWidth=2;
+      ctx.beginPath(); ctx.moveTo(st.x,st.y); ctx.lineTo(st.x-st.vx*8,st.y-st.vy*8); ctx.stroke();
+      if (st.life<=0 || st.x>W+60 || st.y>H+60) shooters.splice(sh,1);
+    }
+    if (Math.random()<0.004 && shooters.length<2){
+      var edge=Math.random()*W;
+      var sp=rand(6,10), ang=rand(Math.PI*0.12, Math.PI*0.32);
+      shooters.push({x:edge, y:-20, vx:Math.cos(ang)*sp, vy:Math.sin(ang)*sp, life:rand(60,110)});
+    }
+
+    raf = requestAnimationFrame(frame);
+  }
+
+  var raf=null;
+  function start(){ if (!raf && !reduce) raf=requestAnimationFrame(frame); }
+  function stop(){ if (raf){ cancelAnimationFrame(raf); raf=null; } }
+
+  window.addEventListener('pointermove', function(e){ mouse.x=e.clientX; mouse.y=e.clientY; }, {passive:true});
+  window.addEventListener('pointerout', function(){ mouse.x=-9999; mouse.y=-9999; });
+  window.addEventListener('touchmove', function(e){
+    if (e.touches && e.touches[0]){ mouse.x=e.touches[0].clientX; mouse.y=e.touches[0].clientY; }
+  }, {passive:true});
+
+  var rt;
+  window.addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt=setTimeout(function(){ build(); if (reduce) drawStatic(); }, 160);
+  });
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) stop(); else start();
+  });
+
+  build();
+  if (reduce) drawStatic(); else start();
+})();
+</script>
 </body>
 </html>
