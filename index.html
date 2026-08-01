@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risheek Kumar Sharma — Founder</title>
+<meta name="description" content="Risheek Kumar Sharma — teenage founder building for the age of AI agents. Founder of thirdworld.io, Prarthana and Hackers Pathshala. Recipient of the Pradhan Mantri Rashtriya Bal Puraskar.">
+<meta name="author" content="Risheek Kumar Sharma">
+<meta name="theme-color" content="#080A12">
+<script>document.documentElement.classList.add('js');</script>
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://viperhackss.github.io/">
+<meta property="og:title" content="Risheek Kumar Sharma — Founder">
+<meta property="og:description" content="Building for the age of AI agents. Founder of thirdworld.io, Prarthana & Hackers Pathshala. National Child Award (Pradhan Mantri Rashtriya Bal Puraskar) recipient.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0f1e'/%3E%3Crect x='24' y='30' width='52' height='40' rx='11' fill='%23100f16' stroke='%23eba23c' stroke-width='4'/%3E%3Crect x='36' y='44' width='9' height='12' rx='3' fill='%23eba23c'/%3E%3Crect x='55' y='44' width='9' height='12' rx='3' fill='%23eba23c'/%3E%3Cline x1='50' y1='30' x2='50' y2='18' stroke='%23eba23c' stroke-width='4'/%3E%3Ccircle cx='50' cy='15' r='5' fill='%23f6c67a'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#080A12; --bg-2:#0B0E1B; --panel:#0E1220; --panel-2:#11162a;
+    --ink:#F3EFE7; --ink-2:#CDCFDB; --muted:#8B90A6; --faint:#5A6076;
+    --gold:#EBA23C; --gold-soft:#F6C67A; --gold-deep:#C67F1E;
+    --indigo:#7E8AFF; --indigo-soft:#9AA4FF;
+    --line:rgba(243,239,231,.10); --line-2:rgba(243,239,231,.18);
+    --display:'Syne',sans-serif;
+    --body:'Hanken Grotesk',system-ui,sans-serif;
+    --mono:'Space Mono',ui-monospace,monospace;
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html,body{overflow-x:hidden}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--body); font-weight:400; line-height:1.65;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3,h4{font-family:var(--display); font-weight:700; letter-spacing:-.02em; text-wrap:balance; margin:0; overflow-wrap:break-word}
+  a{color:inherit; text-decoration:none}
+  img{max-width:100%; display:block}
+  ::selection{background:rgba(235,162,60,.28); color:#fff}
+
+  /* Ambient cosmos */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
+    background:
+      radial-gradient(52% 42% at 82% 6%, rgba(235,162,60,.13), transparent 60%),
+      radial-gradient(50% 45% at 10% 4%, rgba(126,138,255,.12), transparent 62%),
+      radial-gradient(60% 50% at 50% 116%, rgba(235,162,60,.06), transparent 60%),
+      linear-gradient(180deg,#070912 0%, #090b16 50%, #06070e 100%);
+  }
+  canvas#sky{position:fixed; inset:0; z-index:-1; width:100%; height:100%; pointer-events:none; display:block}
+
+  .wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 28px}
+
+  /* Utility label (mono eyebrow) */
+  .label{font-family:var(--mono); font-size:12px; font-weight:700; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--gold); display:inline-flex; align-items:center; gap:12px}
+  .label::before{content:""; width:26px; height:1px; background:var(--gold); opacity:.7}
+  .label.plain{color:var(--muted)} .label.plain::before{background:var(--muted)}
+
+  /* Buttons */
+  .btn{display:inline-flex; align-items:center; gap:10px; font-family:var(--body); font-weight:600; font-size:15px;
+    padding:13px 24px; border-radius:8px; border:1px solid transparent; cursor:pointer;
+    transition:transform .16s ease, background .2s, border-color .2s, color .2s}
+  .btn.solid{background:var(--gold); color:#20160a}
+  .btn.solid:hover{background:var(--gold-soft); transform:translateY(-2px)}
+  .btn.line{color:var(--ink); border-color:var(--line-2); background:transparent}
+  .btn.line:hover{border-color:var(--gold); color:var(--gold); transform:translateY(-2px)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:8px}
+
+  /* ---------- NAV ---------- */
+  header.nav{position:sticky; top:0; z-index:50; border-bottom:1px solid var(--line);
+    background:rgba(8,10,18,.7); backdrop-filter:blur(10px)}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:68px}
+  .brand{display:flex; align-items:center; gap:12px}
+  .brand .rks{width:34px; height:34px; border:1px solid var(--gold); border-radius:8px;
+    display:grid; place-items:center; font-family:var(--display); font-weight:800; font-size:13px; color:var(--gold); letter-spacing:.02em}
+  .brand b{font-family:var(--mono); font-weight:700; font-size:13.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink)}
+  .nav-links{display:flex; align-items:center; gap:4px}
+  .nav-links a{font-family:var(--mono); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); padding:9px 14px; border-radius:7px; transition:color .2s, background .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.now{color:var(--gold); border:1px solid var(--line-2); margin-left:8px}
+  .nav-links a.now:hover{border-color:var(--gold)}
+
+  section{position:relative; z-index:1; scroll-margin-top:86px}
+  .rule{max-width:var(--maxw); margin:0 auto; height:1px; background:var(--line)}
+  .pad{padding:clamp(70px,11vh,128px) 0}
+
+  .head{max-width:760px; margin-bottom:52px}
+  .head h2{font-size:clamp(2rem,4.6vw,3.1rem); line-height:1.04; margin:20px 0 0}
+  .head p{color:var(--muted); font-size:clamp(1.02rem,2.1vw,1.16rem); margin:18px 0 0; max-width:60ch}
+  .gold{color:var(--gold)}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:clamp(28px,5vh,60px) 0 clamp(48px,7vh,84px)}
+  .hero-grid{display:grid; grid-template-columns:1.02fr .98fr; gap:44px; align-items:center; min-height:min(78vh,760px)}
+  .hero-badge{display:inline-flex; align-items:center; gap:11px; font-family:var(--mono); font-size:12px; font-weight:700;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--gold-soft);
+    border:1px solid rgba(235,162,60,.32); background:rgba(235,162,60,.06);
+    padding:8px 14px; border-radius:999px; margin-bottom:26px}
+  .hero-badge .s{color:var(--gold)}
+  h1.title{font-size:clamp(2.55rem,6.4vw,4.7rem); line-height:1.0; letter-spacing:-.03em; font-weight:800}
+  h1.title .amber{color:var(--gold)}
+  .hero .lede{font-size:clamp(1.06rem,2vw,1.28rem); color:var(--ink-2); max-width:34ch; margin:24px 0 0; font-weight:400}
+  .hero .lede b{color:var(--ink); font-weight:600}
+  .hero .sub{color:var(--muted); font-size:1rem; margin:16px 0 0; max-width:42ch}
+  .hero .cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:32px}
+  .hero-recog{margin-top:40px; padding-top:24px; border-top:1px solid var(--line)}
+  .hero-recog .cap{font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--faint); margin-bottom:14px}
+  .hero-recog ul{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px 22px}
+  .hero-recog li{font-size:14px; color:var(--ink-2); display:flex; align-items:center; gap:9px; font-weight:500}
+  .hero-recog li::before{content:""; width:5px; height:5px; border-radius:50%; background:var(--gold)}
+
+  /* ---------- ROBOT STAGE ---------- */
+  .stage{position:relative; display:grid; place-items:center; min-height:480px; user-select:none}
+  .stage .rings{position:absolute; inset:0; margin:auto; width:min(430px,86%); aspect-ratio:1; pointer-events:none; opacity:.6}
+  .stage .rings svg{width:100%; height:100%; overflow:visible}
+  .ring{fill:none; stroke:var(--line-2); stroke-width:1}
+  .ring.g{stroke:rgba(235,162,60,.28); stroke-dasharray:3 8}
+  .spin-slow{transform-origin:center; animation:spin 60s linear infinite}
+  .spin-rev{transform-origin:center; animation:spin 44s linear infinite reverse}
+
+  .robot-wrap{position:relative; width:clamp(230px,30vw,360px); cursor:pointer; z-index:2}
+  .robot{width:100%; height:auto; display:block; overflow:visible; animation:float 6s ease-in-out infinite}
+  .robot:focus-visible{outline:none}
+  .robot-wrap:focus-visible .robot{filter:drop-shadow(0 0 0 var(--gold))}
+  .robot-wrap:focus-visible{outline:2px solid var(--gold); outline-offset:14px; border-radius:20px}
+
+  /* robot parts */
+  .r-shadow{fill:#000; opacity:.34; animation:shadow 6s ease-in-out infinite}
+  .r-metal{fill:url(#metal)}
+  .r-metal-2{fill:url(#metal2)}
+  .r-edge{fill:none; stroke:rgba(243,239,231,.16); stroke-width:1.4}
+  .r-screen{fill:#0a0c16}
+  .r-eye{fill:var(--gold); filter:url(#eglow)}
+  .r-anttip{fill:var(--gold-soft); filter:url(#eglow); animation:pulse 2.4s ease-in-out infinite}
+  .r-chest{fill:none; stroke:var(--gold); stroke-width:2; opacity:.9; transform-origin:160px 250px; animation:pulse 3s ease-in-out infinite}
+  .r-chest-dot{fill:var(--gold)}
+  .r-booster{fill:url(#boost); opacity:.5; animation:pulse 3s ease-in-out infinite}
+  .r-vent{stroke:rgba(243,239,231,.22); stroke-width:2; stroke-linecap:round}
+
+  .arm{transform-box:fill-box; transform-origin:50% 7%;
+    transition:transform .8s cubic-bezier(.34,1.4,.5,1)}
+  .arm-l{transform:rotate(9deg)} .arm-r{transform:rotate(-9deg)}
+  .robot.active .arm-l{transform:rotate(-150deg)}
+  .robot.active .arm-r{transform:rotate(150deg)}
+
+  /* face states */
+  .face-idle{opacity:1; transition:opacity .3s}
+  .face-sim{opacity:0; transition:opacity .3s}
+  .robot.active .face-idle{opacity:0}
+  .robot.active .face-sim{opacity:1}
+  .eye{transform-box:fill-box; transform-origin:center; animation:blink 4.2s infinite}
+  .eye.r{animation-delay:.05s}
+  .bar{fill:var(--gold); transform-box:fill-box; transform-origin:bottom}
+  .robot.active .bar{animation:eq .9s ease-in-out infinite}
+  .bar:nth-child(1){animation-delay:0s} .bar:nth-child(2){animation-delay:.1s}
+  .bar:nth-child(3){animation-delay:.22s} .bar:nth-child(4){animation-delay:.14s}
+  .bar:nth-child(5){animation-delay:.3s} .bar:nth-child(6){animation-delay:.06s}
+  .bar:nth-child(7){animation-delay:.18s}
+  .scan{fill:rgba(235,162,60,.5)}
+  .robot.active .scan{animation:scan 1.8s linear infinite}
+
+  /* speech bubble + hint */
+  .robot-say{position:absolute; left:50%; top:2%; transform:translate(-50%,-6px);
+    background:var(--panel-2); border:1px solid var(--line-2); border-radius:12px;
+    padding:11px 15px; font-family:var(--mono); font-size:12.5px; color:var(--gold-soft);
+    white-space:nowrap; max-width:88vw; opacity:0; pointer-events:none; transition:opacity .3s, transform .3s; z-index:3;
+    box-shadow:0 18px 40px -18px rgba(0,0,0,.8)}
+  .robot-say::after{content:""; position:absolute; left:50%; bottom:-7px; width:12px; height:12px;
+    background:var(--panel-2); border-right:1px solid var(--line-2); border-bottom:1px solid var(--line-2);
+    transform:translateX(-50%) rotate(45deg)}
+  .robot-say .cur{color:var(--gold); animation:caret 1s step-end infinite}
+  .robot.active ~ .robot-say, .robot-wrap.on .robot-say{opacity:1; transform:translate(-50%,-14px)}
+  .robot-hint{position:absolute; left:50%; bottom:-2px; transform:translateX(-50%);
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+    display:inline-flex; align-items:center; gap:8px; transition:opacity .3s; z-index:3}
+  .robot-hint .blip{width:7px; height:7px; border-radius:50%; background:var(--gold); animation:pulse 1.6s ease-in-out infinite}
+  .robot-wrap.on .robot-hint{opacity:0; pointer-events:none}
+
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  @keyframes shadow{0%,100%{transform:scaleX(1);opacity:.34}50%{transform:scaleX(.82);opacity:.24}}
+  @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+  @keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.12)}}
+  @keyframes eq{0%,100%{transform:scaleY(.28)}50%{transform:scaleY(1)}}
+  @keyframes scan{0%{transform:translateY(0)}100%{transform:translateY(58px)}}
+  @keyframes caret{50%{opacity:0}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:start}
+  .about-body p{color:var(--ink-2); font-size:1.06rem; margin:0 0 18px; max-width:60ch}
+  .about-body p b{color:var(--ink); font-weight:600}
+  .about-body .sig{margin-top:30px; display:flex; align-items:center; gap:16px}
+  .about-body .sig .nm{font-family:var(--display); font-weight:700; font-size:1.15rem}
+  .about-body .sig .rl{font-family:var(--mono); font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+  .portrait{position:sticky; top:100px}
+  .frame{position:relative; border-radius:12px; overflow:hidden; border:1px solid var(--line-2); background:var(--panel)}
+  .frame .ph{position:absolute; inset:0; display:grid; place-content:center; place-items:center; gap:12px; text-align:center; padding:24px;
+    background:radial-gradient(120% 80% at 50% 0%, rgba(235,162,60,.12), transparent 58%), var(--panel)}
+  .frame .ph svg{width:34px; height:34px}
+  .frame .ph .t{font-family:var(--mono); font-size:12px; color:var(--muted); line-height:1.6}
+  .frame .ph .n{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--faint)}
+  .frame img{position:relative; z-index:1; width:100%; height:100%; object-fit:cover}
+  .frame.empty img{display:none}
+  .portrait .frame{aspect-ratio:4/5}
+  .portrait .meta{margin-top:14px; font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; color:var(--faint); text-align:center}
+
+  /* ---------- VENTURES ---------- */
+  .vgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden}
+  .venture{position:relative; padding:32px 28px 30px; background:var(--bg-2); transition:background .25s, transform .25s; transform-style:preserve-3d}
+  .venture:hover{background:var(--panel)}
+  .venture .vhead{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:22px}
+  .venture .vno{font-family:var(--mono); font-size:12px; color:var(--gold); letter-spacing:.1em}
+  .venture .vstage{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+  .venture h3{font-size:1.5rem; letter-spacing:-.01em}
+  .venture .vtag{font-family:var(--mono); font-size:12.5px; color:var(--gold-soft); margin:6px 0 16px}
+  .venture p{color:var(--muted); font-size:.98rem; margin:0 0 20px}
+  .venture p b{color:var(--ink-2); font-weight:600}
+  .venture .vlink{font-family:var(--mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink);
+    display:inline-flex; gap:8px; align-items:center}
+  .venture .vlink .ar{color:var(--gold); transition:transform .2s}
+  .venture:hover .vlink .ar{transform:translate(3px,-3px)}
+
+  /* ---------- IMPACT ---------- */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:26px}
+  .stat{padding:4px 0}
+  .stat .n{font-family:var(--display); font-weight:800; font-size:clamp(2.4rem,4.6vw,3.4rem); line-height:1; color:var(--ink); font-variant-numeric:tabular-nums}
+  .stat .n.g{color:var(--gold)}
+  .stat .l{font-family:var(--mono); font-size:12px; letter-spacing:.03em; color:var(--muted); margin-top:14px; line-height:1.6}
+  .stat + .stat{border-left:1px solid var(--line); padding-left:26px}
+
+  /* ---------- PRESS ---------- */
+  .press{border-top:1px solid var(--line)}
+  .prow{display:grid; grid-template-columns:200px 1fr auto; gap:20px; align-items:center;
+    padding:20px 6px; border-bottom:1px solid var(--line); transition:padding-left .25s, background .2s}
+  .prow:hover{padding-left:16px; background:linear-gradient(90deg,rgba(235,162,60,.05),transparent)}
+  .prow .src{font-family:var(--display); font-weight:700; font-size:1.05rem}
+  .prow .hl{color:var(--muted); font-size:.96rem}
+  .prow .ar{font-family:var(--mono); font-size:12px; color:var(--faint); text-transform:uppercase; letter-spacing:.1em; transition:color .2s, transform .2s}
+  .prow:hover .ar{color:var(--gold); transform:translateX(3px)}
+
+  /* ---------- GALLERY ---------- */
+  .gal{display:grid; grid-template-columns:repeat(6,1fr); gap:16px}
+  .gcell{grid-column:span 2} .gcell.wide{grid-column:span 3}
+  .gcell .frame{aspect-ratio:4/3}
+  .gcell figcaption{font-family:var(--mono); font-size:11.5px; color:var(--muted); margin-top:11px; line-height:1.6; letter-spacing:.02em}
+  figure{margin:0}
+  .gnote{margin-top:24px; font-family:var(--mono); font-size:12px; color:var(--faint); line-height:1.7}
+  .gnote code{color:var(--gold-soft); background:rgba(235,162,60,.08); padding:2px 7px; border-radius:5px}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr auto; gap:40px; align-items:end}
+  .contact h2{font-size:clamp(2.2rem,5.4vw,3.8rem); line-height:1.02; margin-top:20px}
+  .contact .em{font-family:var(--display); font-weight:700; font-size:clamp(1.3rem,3vw,2rem); color:var(--gold);
+    display:inline-block; margin-top:8px; border-bottom:2px solid transparent; transition:border-color .2s}
+  .contact .em:hover{border-color:var(--gold)}
+  .contact .side{display:flex; flex-direction:column; gap:12px; font-family:var(--mono); font-size:13px}
+  .contact .side a{color:var(--ink-2); display:flex; align-items:center; gap:10px; transition:color .2s}
+  .contact .side a:hover{color:var(--gold)}
+  .contact .side a .ar{color:var(--faint)}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line); margin-top:30px; padding:34px 0 46px}
+  .foot{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:18px}
+  .foot .fbrand{font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  .foot .fnav{display:flex; flex-wrap:wrap; gap:20px; font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:.06em}
+  .foot .fnav a{color:var(--muted)} .foot .fnav a:hover{color:var(--gold)}
+  .foot .cp{width:100%; font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.03em; margin-top:6px}
+
+  /* ---------- Reveal ---------- */
+  .js [data-reveal]{opacity:0; transform:translateY(20px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js [data-reveal].in{opacity:1; transform:none}
+  .js [data-reveal][data-delay="1"]{transition-delay:.09s}
+  .js [data-reveal][data-delay="2"]{transition-delay:.18s}
+  .js [data-reveal][data-delay="3"]{transition-delay:.27s}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:920px){
+    .hero-grid{grid-template-columns:1fr; gap:20px; min-height:0}
+    .stage{order:-1; min-height:390px; margin-top:8px}
+    h1.title{font-size:clamp(2.4rem,10vw,3.6rem)}
+    .hero .lede,.hero .sub{max-width:none}
+    .about-grid{grid-template-columns:1fr; gap:36px}
+    .portrait{position:static; max-width:440px}
+    .vgrid{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(2,1fr); gap:20px 26px}
+    .stat + .stat{border-left:none; padding-left:0}
+    .prow{grid-template-columns:1fr auto; gap:6px 14px}
+    .prow .hl{grid-column:1/-1; order:3}
+    .gal{grid-template-columns:repeat(2,1fr)}
+    .gcell,.gcell.wide{grid-column:span 1}
+    .contact-grid{grid-template-columns:1fr; gap:28px}
+  }
+  @media (max-width:600px){
+    .nav-links{display:none}
+    .wrap{padding:0 20px}
+    .stats{grid-template-columns:1fr 1fr}
+    .gal{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important}
+    .robot,.eye,.r-anttip,.r-chest,.r-booster,.spin-slow,.spin-rev,.r-shadow,.bar,.scan,.blip{animation:none !important}
+    .js [data-reveal],[data-reveal]{opacity:1 !important; transform:none !important}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Risheek Kumar Sharma — home">
+      <span class="rks" aria-hidden="true">R</span>
+      <b>Risheek&nbsp;K.&nbsp;Sharma</b>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#ventures">Ventures</a>
+      <a href="#impact">Impact</a>
+      <a href="#press">Press</a>
+      <a class="now" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="hero-badge" data-reveal><span class="s">★</span> National Child Award · Conferred by the President of India</span>
+        <h1 class="title" data-reveal data-delay="1">Building for the age of <span class="amber">AI agents.</span></h1>
+        <p class="lede" data-reveal data-delay="2">
+          I'm <b>Risheek Kumar Sharma</b> — a founder building <b>thirdworld.io</b>, <b>Prarthana</b> and
+          <b>Hackers Pathshala</b>, at the meeting point of AI, ancient science and security.
+        </p>
+        <p class="sub" data-reveal data-delay="2">
+          I started teaching ethical hacking as a teenager. I like starting things that shouldn't be possible yet.
+        </p>
+        <div class="cta" data-reveal data-delay="3">
+          <a class="btn solid" href="#ventures">See what I'm building</a>
+          <a class="btn line" href="https://www.linkedin.com/in/viperhacks-risheek/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+        <div class="hero-recog" data-reveal data-delay="3">
+          <div class="cap">Recognised &amp; trusted by</div>
+          <ul>
+            <li>President of India</li>
+            <li>PM Narendra Modi</li>
+            <li>India's Defense</li>
+            <li>State Police Academy</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ROBOT -->
+      <div class="stage" data-reveal data-delay="1">
+        <div class="rings" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <circle class="ring spin-slow" cx="100" cy="100" r="96"/>
+            <circle class="ring g spin-rev" cx="100" cy="100" r="78"/>
+            <circle class="ring spin-slow" cx="100" cy="100" r="56" style="animation-duration:80s"/>
+          </svg>
+        </div>
+
+        <div class="robot-wrap" id="robotWrap" role="button" tabindex="0"
+             aria-label="AyaS, the AI agent — activate">
+          <svg class="robot" id="robot" viewBox="0 0 320 400" aria-hidden="true">
+            <defs>
+              <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2a3350"/><stop offset="1" stop-color="#141a2e"/>
+              </linearGradient>
+              <linearGradient id="metal2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#222a44"/><stop offset="1" stop-color="#10152600"/>
+                <stop offset="1" stop-color="#0f1424"/>
+              </linearGradient>
+              <radialGradient id="boost" cx="50%" cy="30%" r="70%">
+                <stop offset="0" stop-color="var(--gold)"/><stop offset="1" stop-color="transparent"/>
+              </radialGradient>
+              <filter id="eglow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <clipPath id="screenClip"><rect x="112" y="120" width="96" height="70" rx="16"/></clipPath>
+            </defs>
+
+            <!-- shadow -->
+            <ellipse class="r-shadow" cx="160" cy="384" rx="74" ry="12"/>
+
+            <!-- LEFT ARM (viewer left) -->
+            <g class="arm arm-l">
+              <rect x="86" y="214" width="24" height="86" rx="12" class="r-metal"/>
+              <rect x="86" y="214" width="24" height="86" rx="12" class="r-edge"/>
+              <circle cx="98" cy="306" r="15" class="r-metal"/><circle cx="98" cy="306" r="15" class="r-edge"/>
+            </g>
+            <!-- RIGHT ARM -->
+            <g class="arm arm-r">
+              <rect x="210" y="214" width="24" height="86" rx="12" class="r-metal"/>
+              <rect x="210" y="214" width="24" height="86" rx="12" class="r-edge"/>
+              <circle cx="222" cy="306" r="15" class="r-metal"/><circle cx="222" cy="306" r="15" class="r-edge"/>
+            </g>
+
+            <!-- booster glow -->
+            <ellipse class="r-booster" cx="160" cy="330" rx="46" ry="16"/>
+
+            <!-- torso -->
+            <rect x="108" y="206" width="104" height="120" rx="34" class="r-metal"/>
+            <rect x="108" y="206" width="104" height="120" rx="34" class="r-edge"/>
+            <line class="r-vent" x1="130" y1="300" x2="150" y2="300"/>
+            <line class="r-vent" x1="170" y1="300" x2="190" y2="300"/>
+            <!-- chest emblem: small mandala + core -->
+            <circle class="r-chest" cx="160" cy="250" r="17"/>
+            <circle class="r-chest" cx="160" cy="250" r="9" style="animation-delay:.4s"/>
+            <circle class="r-chest-dot" cx="160" cy="250" r="3.4"/>
+
+            <!-- neck -->
+            <rect x="150" y="196" width="20" height="16" rx="5" class="r-metal"/>
+
+            <!-- antenna -->
+            <line x1="160" y1="96" x2="160" y2="66" stroke="rgba(243,239,231,.4)" stroke-width="3" stroke-linecap="round"/>
+            <circle class="r-anttip" cx="160" cy="60" r="6"/>
+
+            <!-- head -->
+            <rect x="96" y="98" width="128" height="104" rx="30" class="r-metal"/>
+            <rect x="96" y="98" width="128" height="104" rx="30" class="r-edge"/>
+            <!-- ear pods -->
+            <rect x="88" y="132" width="10" height="34" rx="5" class="r-metal"/>
+            <rect x="222" y="132" width="10" height="34" rx="5" class="r-metal"/>
+            <!-- screen -->
+            <rect x="112" y="120" width="96" height="70" rx="16" class="r-screen"/>
+            <rect x="112" y="120" width="96" height="70" rx="16" fill="none" stroke="rgba(235,162,60,.25)" stroke-width="1"/>
+
+            <g clip-path="url(#screenClip)">
+              <!-- idle face -->
+              <g class="face-idle">
+                <rect class="r-eye eye" x="134" y="142" width="15" height="22" rx="6"/>
+                <rect class="r-eye eye r" x="171" y="142" width="15" height="22" rx="6"/>
+                <rect x="148" y="174" width="24" height="4" rx="2" fill="var(--gold)" opacity=".55"/>
+              </g>
+              <!-- sim face -->
+              <g class="face-sim">
+                <rect class="bar" x="120" y="140" width="8" height="42" rx="2"/>
+                <rect class="bar" x="132" y="140" width="8" height="42" rx="2"/>
+                <rect class="bar" x="144" y="140" width="8" height="42" rx="2"/>
+                <rect class="bar" x="156" y="140" width="8" height="42" rx="2"/>
+                <rect class="bar" x="168" y="140" width="8" height="42" rx="2"/>
+                <rect class="bar" x="180" y="140" width="8" height="42" rx="2"/>
+                <rect class="bar" x="192" y="140" width="8" height="42" rx="2"/>
+                <rect class="scan" x="112" y="122" width="96" height="2"/>
+              </g>
+            </g>
+          </svg>
+
+          <div class="robot-say" id="robotSay" aria-hidden="true"><span id="sayText"></span><span class="cur">▌</span></div>
+          <div class="robot-hint" id="robotHint"><span class="blip"></span> Tap to wake AyaS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="pad">
+    <div class="wrap about-grid">
+      <div class="about-body">
+        <span class="label" data-reveal>About</span>
+        <div class="head" style="margin-bottom:26px">
+          <h2 data-reveal>From a self-taught hacker / infosec enthusiast to <span class="gold">the President's office.</span></h2>
+        </div>
+        <p data-reveal>
+          Not long ago, pulling the old hard drive out of a ThinkCentre workstation, I found my own beginnings in
+          the files — JavaScript I'd written at <b>12</b>, a Harvard CS course I was working through at <b>13</b>.
+          That jolt of nostalgia was also a realisation: I've only just started, and I can do far more.
+        </p>
+        <p data-reveal>
+          What began as a kid's curiosity became a mission — make ordinary people, especially children and women,
+          safe in a digital world moving faster than anyone can teach.
+        </p>
+        <p data-reveal>
+          I founded <b>Hackers Pathshala</b>, Jammu &amp; Kashmir's first cybersecurity company. Through it I've
+          trained <b>5,000+ children</b> across the country in cyber-safety and upskilled <b>100+ police officers</b>
+          in modern cybercrime investigation. My work has supported <b>India's defense</b> on cybersecurity, and I
+          launched the nationwide <b>Hack Free Bharat</b> initiative.
+        </p>
+        <p data-reveal>
+          In December 2024, <b>President Droupadi Murmu</b> conferred on me the <b>Pradhan Mantri Rashtriya Bal
+          Puraskar</b> — India's highest honour for children — in Science &amp; Technology. Today I'm building
+          <b>thirdworld.io</b>, the operating layer for AI agents, and <b>Prarthana</b>, which brings India's
+          ancient scriptures to modern wellbeing.
+        </p>
+        <div class="sig" data-reveal>
+          <div>
+            <div class="nm">Risheek Kumar Sharma</div>
+            <div class="rl">Founder · thirdworld.io / Prarthana / Hackers Pathshala</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait" data-reveal data-delay="1">
+        <figure class="frame empty">
+          <img src="assets/img/portrait.jpg" alt="Portrait of Risheek Kumar Sharma" loading="lazy"
+               onerror="this.closest('.frame').classList.add('empty')">
+          <div class="ph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#EBA23C" stroke-width="1.3"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0115 0"/></svg>
+            <span class="t">Add your portrait</span>
+            <span class="n">assets/img/portrait.jpg</span>
+          </div>
+        </figure>
+        <div class="meta">RISHEEK KUMAR SHARMA — FOUNDER</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ============ VENTURES ============ -->
+  <section id="ventures" class="pad">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="label">Ventures</span>
+        <h2>Three companies, one belief — <span class="gold">technology should serve people.</span></h2>
+        <p>From the operating layer for AI agents, to ancient wisdom for modern health, to a safer digital India.</p>
+      </div>
+      <div class="vgrid">
+        <article class="venture" data-reveal>
+          <div class="vhead"><span class="vno">01</span><span class="vstage">Building now</span></div>
+          <h3>thirdworld.io</h3>
+          <div class="vtag">// clothes for AI agents</div>
+          <p>The shift from conventional SaaS to <b>AyaS — AI at Your Service</b>: from home to office, and from office to every employee. We build the operating layer that lets AI agents do real work.</p>
+          <a class="vlink" href="https://thirdworld.io" target="_blank" rel="noopener">thirdworld.io <span class="ar">↗</span></a>
+        </article>
+        <article class="venture" data-reveal data-delay="1">
+          <div class="vhead"><span class="vno">02</span><span class="vstage">In development</span></div>
+          <h3>Prarthana</h3>
+          <div class="vtag">// ancient wisdom, modern wellbeing</div>
+          <p>Presenting India's ancient scriptures and artefact knowledge to help people with <b>mental health, fitness and lifestyle</b> through undiscovered Vedic science. Praised by <b>PM Narendra Modi</b>.</p>
+          <a class="vlink" href="https://prarthana.app" target="_blank" rel="noopener">prarthana.app <span class="ar">↗</span></a>
+        </article>
+        <article class="venture" data-reveal data-delay="2">
+          <div class="vhead"><span class="vno">03</span><span class="vstage">Founded &amp; scaling</span></div>
+          <h3>Hackers Pathshala</h3>
+          <div class="vtag">// a safer digital india</div>
+          <p>J&amp;K's first cybersecurity company — protecting children and women from cybercrime. <b>5,000+ children</b> trained, <b>100+ officers</b> upskilled, and the <b>Hack Free Bharat</b> mission.</p>
+          <a class="vlink" href="https://www.linkedin.com/in/viperhacks-risheek/" target="_blank" rel="noopener">Learn more <span class="ar">↗</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ============ IMPACT ============ -->
+  <section id="impact" class="pad">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="label">Impact</span>
+        <h2>What started as a <span class="gold">teenager's side project.</span></h2>
+      </div>
+      <div class="stats">
+        <div class="stat" data-reveal>
+          <div class="n g" data-count="5000" data-suffix="+">0</div>
+          <div class="l">Children trained in cyber-safety across India</div>
+        </div>
+        <div class="stat" data-reveal data-delay="1">
+          <div class="n g" data-count="100" data-suffix="+">0</div>
+          <div class="l">Police officers upskilled in cybercrime investigation</div>
+        </div>
+        <div class="stat" data-reveal data-delay="2">
+          <div class="n">★</div>
+          <div class="l">Pradhan Mantri Rashtriya Bal Puraskar '25 — Sci &amp; Tech</div>
+        </div>
+        <div class="stat" data-reveal data-delay="3">
+          <div class="n" data-count="3" data-suffix="">0</div>
+          <div class="l">Ventures across AI, wellbeing &amp; security</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ============ PRESS ============ -->
+  <section id="press" class="pad">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="label">Press</span>
+        <h2>Coverage &amp; <span class="gold">recognition.</span></h2>
+      </div>
+      <div class="press" data-reveal>
+        <a class="prow" href="https://x.com/MinistryWCD/status/1876199666536362371" target="_blank" rel="noopener">
+          <span class="src">Ministry of WCD</span>
+          <span class="hl">Govt. of India spotlights Risheek, 17 — founder of J&amp;K's first cybersecurity company.</span>
+          <span class="ar">Read ↗</span>
+        </a>
+        <a class="prow" href="https://www.thestatesman.com/india/from-saving-lives-to-setting-world-records-17-children-receive-pradhan-mantri-bal-puraskar-1503379970.html" target="_blank" rel="noopener">
+          <span class="src">The Statesman</span>
+          <span class="hl">17 children receive the Pradhan Mantri Bal Puraskar from the President.</span>
+          <span class="ar">Read ↗</span>
+        </a>
+        <a class="prow" href="https://scienceindiamag.in/a-young-cyber-sentry/" target="_blank" rel="noopener">
+          <span class="src">Science India</span>
+          <span class="hl">“A Young Cyber Sentry” — the story of a teenage cybersecurity founder.</span>
+          <span class="ar">Read ↗</span>
+        </a>
+        <a class="prow" href="https://kashmirlife.net/jammu-kashmirs-risheek-kumar-receives-bal-puraskar-by-president-murmu-377547/" target="_blank" rel="noopener">
+          <span class="src">Kashmir Life</span>
+          <span class="hl">Risheek Kumar receives the Bal Puraskar from President Murmu.</span>
+          <span class="ar">Read ↗</span>
+        </a>
+        <a class="prow" href="https://indiabookofrecords.in/risheek-kumar/" target="_blank" rel="noopener">
+          <span class="src">India Book of Records</span>
+          <span class="hl">Recognised for record-setting work in cybersecurity education.</span>
+          <span class="ar">Read ↗</span>
+        </a>
+        <a class="prow" href="https://www.the420.in/jks-young-innovator-risheek-sharma-receives-honors-in-cybercrime-research-at-futurecrime-summit/" target="_blank" rel="noopener">
+          <span class="src">The420.in</span>
+          <span class="hl">Young innovator honoured for cybercrime research at the FutureCrime Summit.</span>
+          <span class="ar">Read ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="gallery" class="pad">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="label">Moments</span>
+        <h2>A few <span class="gold">defining moments.</span></h2>
+      </div>
+      <div class="gal">
+        <figure class="gcell wide" data-reveal>
+          <div class="frame empty">
+            <img src="assets/img/president.jpg" loading="lazy"
+                 alt="Risheek receiving the Pradhan Mantri Rashtriya Bal Puraskar from President Droupadi Murmu"
+                 onerror="this.closest('.frame').classList.add('empty')">
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#EBA23C" stroke-width="1.3"><path d="M4 8h16v11H4z"/><path d="M9 8V5h6v3"/><circle cx="12" cy="13.5" r="2.5"/></svg>
+              <span class="t">With Hon'ble President Droupadi Murmu</span><span class="n">president.jpg</span>
+            </div>
+          </div>
+          <figcaption>Receiving the Pradhan Mantri Rashtriya Bal Puraskar from Hon'ble President Droupadi Murmu, Rashtrapati Bhavan.</figcaption>
+        </figure>
+        <figure class="gcell" data-reveal data-delay="1">
+          <div class="frame empty">
+            <img src="assets/img/pm-modi.jpg" loading="lazy" alt="Risheek with Prime Minister Narendra Modi"
+                 onerror="this.closest('.frame').classList.add('empty')">
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#EBA23C" stroke-width="1.3"><circle cx="12" cy="8.5" r="3.2"/><path d="M5 20a7 7 0 0114 0"/></svg>
+              <span class="t">With Hon'ble PM Narendra Modi</span><span class="n">pm-modi.jpg</span>
+            </div>
+          </div>
+          <figcaption>With Hon'ble Prime Minister Narendra Modi.</figcaption>
+        </figure>
+        <figure class="gcell" data-reveal data-delay="2">
+          <div class="frame empty">
+            <img src="assets/img/students.jpg" loading="lazy" alt="Risheek leading a cyber-safety workshop with students"
+                 onerror="this.closest('.frame').classList.add('empty')">
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#EBA23C" stroke-width="1.3"><circle cx="8" cy="9" r="2.4"/><circle cx="16" cy="9" r="2.4"/><path d="M3 19a5 5 0 019-3 5 5 0 019 3"/></svg>
+              <span class="t">Cyber-safety workshop with students</span><span class="n">students.jpg</span>
+            </div>
+          </div>
+          <figcaption>One of many cyber-safety workshops with students.</figcaption>
+        </figure>
+        <figure class="gcell" data-reveal data-delay="1">
+          <div class="frame empty">
+            <img src="assets/img/academy.jpg" loading="lazy" alt="Risheek training police officers"
+                 onerror="this.closest('.frame').classList.add('empty')">
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#EBA23C" stroke-width="1.3"><path d="M12 3l9 4-9 4-9-4z"/><path d="M6 10v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
+              <span class="t">Training police officers</span><span class="n">academy.jpg</span>
+            </div>
+          </div>
+          <figcaption>Upskilling police officers in cybercrime investigation.</figcaption>
+        </figure>
+        <figure class="gcell wide" data-reveal data-delay="2">
+          <div class="frame empty">
+            <img src="assets/img/summit.jpg" loading="lazy" alt="Risheek honoured at the FutureCrime Summit"
+                 onerror="this.closest('.frame').classList.add('empty')">
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#EBA23C" stroke-width="1.3"><path d="M5 21h14M7 21V10l5-4 5 4v11"/><path d="M10 21v-5h4v5"/></svg>
+              <span class="t">Honoured at the FutureCrime Summit</span><span class="n">summit.jpg</span>
+            </div>
+          </div>
+          <figcaption>Honoured for cybercrime research at the FutureCrime Summit.</figcaption>
+        </figure>
+      </div>
+      <div class="gnote">Drop your photos into <code>assets/img/</code> using these exact names — they replace the placeholders automatically. No code changes needed.</div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="pad contact">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="label" data-reveal>Contact</span>
+        <h2 data-reveal>Let's build the future — together.</h2>
+        <a class="em" href="mailto:risheek8307@gmail.com" data-reveal data-delay="1">risheek8307@gmail.com</a>
+      </div>
+      <div class="side" data-reveal data-delay="2">
+        <a href="https://www.linkedin.com/in/viperhacks-risheek/" target="_blank" rel="noopener">LinkedIn <span class="ar">↗</span></a>
+        <a href="https://thirdworld.io" target="_blank" rel="noopener">thirdworld.io <span class="ar">↗</span></a>
+        <a href="https://prarthana.app" target="_blank" rel="noopener">prarthana.app <span class="ar">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="fbrand">© <span id="yr"></span> Risheek Kumar Sharma</span>
+    <nav class="fnav" aria-label="Footer">
+      <a href="#about">About</a><a href="#ventures">Ventures</a><a href="#press">Press</a>
+      <a href="https://www.linkedin.com/in/viperhacks-risheek/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+    <span class="cp">Building from India, for the world.</span>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Risheek Kumar Sharma","jobTitle":"Founder","url":"https://viperhackss.github.io/","sameAs":["https://www.linkedin.com/in/viperhacks-risheek/","https://thirdworld.io","https://prarthana.app"],"award":"Pradhan Mantri Rashtriya Bal Puraskar (2025)","nationality":"Indian"}
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* Reveal on scroll */
+  var reveals = [].slice.call(document.querySelectorAll('[data-reveal]'));
+  if (reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+
+  /* Count-up */
+  function countUp(el){
+    var target=parseFloat(el.getAttribute('data-count')), suf=el.getAttribute('data-suffix')||'', t0=null, dur=1500;
+    function fmt(n){ return Math.round(n).toLocaleString('en-IN')+suf; }
+    function step(ts){ if(t0===null)t0=ts; var p=Math.min((ts-t0)/dur,1); el.textContent=fmt(target*(1-Math.pow(1-p,3)));
+      if(p<1)requestAnimationFrame(step); else el.textContent=fmt(target); }
+    requestAnimationFrame(step);
+  }
+  var counters=[].slice.call(document.querySelectorAll('[data-count]'));
+  if (reduce || !('IntersectionObserver' in window)){
+    counters.forEach(function(el){ el.textContent=parseFloat(el.getAttribute('data-count')).toLocaleString('en-IN')+(el.getAttribute('data-suffix')||''); });
+  } else {
+    var cio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ countUp(e.target); cio.unobserve(e.target); } }); },{threshold:.6});
+    counters.forEach(function(el){ cio.observe(el); });
+  }
+
+  /* Subtle 3D tilt on venture cards (fine pointers) */
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce){
+    document.querySelectorAll('.venture').forEach(function(c){
+      c.addEventListener('pointermove', function(e){
+        var r=c.getBoundingClientRect(), px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+        c.style.transform='perspective(1000px) rotateX('+(-py*3.5).toFixed(2)+'deg) rotateY('+(px*4).toFixed(2)+'deg)';
+      });
+      c.addEventListener('pointerleave', function(){ c.style.transform=''; });
+    });
+  }
+
+  /* ---- AyaS robot interaction ---- */
+  var wrap=document.getElementById('robotWrap'), robot=document.getElementById('robot'),
+      sayText=document.getElementById('sayText'), robotSay=document.getElementById('robotSay');
+  var lines=["Namaste. I'm AyaS — Risheek's agent.","From home to office, office to employee.","AI, at your service."];
+  var typing=null, revert=null, li=0;
+  function typeLine(s, done){
+    var i=0; clearInterval(typing);
+    typing=setInterval(function(){
+      sayText.textContent=s.slice(0,i++);
+      if(i>s.length){ clearInterval(typing); if(done) setTimeout(done, 1400); }
+    }, 34);
+  }
+  function cycle(){ typeLine(lines[li%lines.length], function(){ li++; if(wrap.classList.contains('on')) cycle(); }); }
+  function activate(){
+    if(wrap.classList.contains('on')) { deactivate(); return; }
+    wrap.classList.add('on'); robot.classList.add('active');
+    wrap.setAttribute('aria-pressed','true'); robotSay.setAttribute('aria-hidden','false');
+    li=0;
+    if(reduce){ sayText.textContent=lines[0]; } else { cycle(); }
+    clearTimeout(revert); revert=setTimeout(deactivate, 8500);
+  }
+  function deactivate(){
+    wrap.classList.remove('on'); robot.classList.remove('active');
+    wrap.setAttribute('aria-pressed','false'); robotSay.setAttribute('aria-hidden','true');
+    clearInterval(typing); clearTimeout(revert); sayText.textContent='';
+  }
+  wrap.addEventListener('click', activate);
+  wrap.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activate(); } });
+
+  /* ================= COSMOS BACKGROUND ================= */
+  var canvas=document.getElementById('sky'), ctx=canvas.getContext('2d');
+  var W=0,H=0,dpr=1,stars=[],nodes=[],shooters=[],mouse={x:-9999,y:-9999};
+  function rand(a,b){ return a+Math.random()*(b-a); }
+  function build(){
+    dpr=Math.min(devicePixelRatio||1,2); W=innerWidth; H=innerHeight;
+    canvas.width=Math.floor(W*dpr); canvas.height=Math.floor(H*dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
+    var sc=Math.min(Math.round(W*H/7000),240); stars=[];
+    for(var i=0;i<sc;i++) stars.push({x:Math.random()*W,y:Math.random()*H,r:rand(.4,1.5),base:rand(.2,.85),tw:rand(.5,2),ph:Math.random()*6.28,
+      c:Math.random()<.72?'#EDE6D6':(Math.random()<.6?'#F6C67A':'#9AA4FF')});
+    var nc=Math.max(24,Math.min(Math.round(W*H/26000),104)); if(W<640)nc=Math.min(nc,40); nodes=[];
+    for(var j=0;j<nc;j++) nodes.push({x:Math.random()*W,y:Math.random()*H,vx:rand(-.12,.12),vy:rand(-.12,.12),r:rand(.9,1.9)});
+  }
+  var LINK=130, MLINK=180, t=0, raf=null;
+  function frame(){
+    t+=.016; ctx.clearRect(0,0,W,H);
+    for(var i=0;i<stars.length;i++){ var s=stars[i]; var a=s.base+Math.sin(t*s.tw+s.ph)*.28; a=a<0?0:a>1?1:a;
+      ctx.globalAlpha=a; ctx.fillStyle=s.c; ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,6.28); ctx.fill(); }
+    ctx.globalAlpha=1;
+    for(var n=0;n<nodes.length;n++){ var p=nodes[n]; p.x+=p.vx; p.y+=p.vy;
+      if(p.x<-20)p.x=W+20; else if(p.x>W+20)p.x=-20; if(p.y<-20)p.y=H+20; else if(p.y>H+20)p.y=-20; }
+    for(var a2=0;a2<nodes.length;a2++){ var pa=nodes[a2];
+      for(var b2=a2+1;b2<nodes.length;b2++){ var pb=nodes[b2]; var dx=pa.x-pb.x,dy=pa.y-pb.y,d2=dx*dx+dy*dy;
+        if(d2<LINK*LINK){ var d=Math.sqrt(d2); ctx.strokeStyle='rgba(126,138,255,'+(.13*(1-d/LINK)).toFixed(3)+')'; ctx.lineWidth=1;
+          ctx.beginPath(); ctx.moveTo(pa.x,pa.y); ctx.lineTo(pb.x,pb.y); ctx.stroke(); } }
+      var mdx=pa.x-mouse.x,mdy=pa.y-mouse.y,md2=mdx*mdx+mdy*mdy;
+      if(md2<MLINK*MLINK){ var md=Math.sqrt(md2); ctx.strokeStyle='rgba(235,162,60,'+(.5*(1-md/MLINK)).toFixed(3)+')'; ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(pa.x,pa.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke();
+        pa.x-=mdx/md*.3*(1-md/MLINK); pa.y-=mdy/md*.3*(1-md/MLINK); }
+      ctx.fillStyle='rgba(205,207,219,.8)'; ctx.beginPath(); ctx.arc(pa.x,pa.y,pa.r,0,6.28); ctx.fill();
+    }
+    for(var sh=shooters.length-1;sh>=0;sh--){ var st=shooters[sh]; st.x+=st.vx; st.y+=st.vy; st.life--;
+      var g=ctx.createLinearGradient(st.x,st.y,st.x-st.vx*8,st.y-st.vy*8);
+      g.addColorStop(0,'rgba(246,198,122,.9)'); g.addColorStop(1,'rgba(246,198,122,0)');
+      ctx.strokeStyle=g; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(st.x,st.y); ctx.lineTo(st.x-st.vx*8,st.y-st.vy*8); ctx.stroke();
+      if(st.life<=0||st.x>W+60||st.y>H+60) shooters.splice(sh,1); }
+    if(Math.random()<.0035 && shooters.length<2){ var sp=rand(6,10),ang=rand(.4,1); shooters.push({x:rand(0,W),y:-20,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp,life:rand(60,110)}); }
+    raf=requestAnimationFrame(frame);
+  }
+  function start(){ if(!raf&&!reduce) raf=requestAnimationFrame(frame); }
+  function stop(){ if(raf){ cancelAnimationFrame(raf); raf=null; } }
+  function drawStatic(){ ctx.clearRect(0,0,W,H); for(var i=0;i<stars.length;i++){ var s=stars[i]; ctx.globalAlpha=s.base; ctx.fillStyle=s.c; ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,6.28); ctx.fill(); } ctx.globalAlpha=1; }
+  addEventListener('pointermove', function(e){ mouse.x=e.clientX; mouse.y=e.clientY; }, {passive:true});
+  addEventListener('pointerout', function(){ mouse.x=-9999; mouse.y=-9999; });
+  var rt; addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(function(){ build(); if(reduce)drawStatic(); }, 160); });
+  document.addEventListener('visibilitychange', function(){ if(document.hidden)stop(); else start(); });
+  build(); if(reduce)drawStatic(); else start();
+})();
+</script>
+</body>
+</html>
