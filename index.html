@@ -72,7 +72,7 @@
   :root[data-theme="light"] ::selection{background:rgba(167,106,22,.22); color:#191510}
 
   body::before{
-    content:""; position:fixed; inset:0; z-index:-2; pointer-events:none; transition:opacity .5s;
+    content:""; position:fixed; inset:0; z-index:-3; pointer-events:none; transition:opacity .5s;
     background:
       radial-gradient(52% 42% at 82% 6%, rgba(235,162,60,.13), transparent 60%),
       radial-gradient(50% 45% at 10% 4%, rgba(126,138,255,.12), transparent 62%),
@@ -86,6 +86,8 @@
       radial-gradient(60% 50% at 50% 118%, rgba(90,200,200,.12), transparent 60%),
       linear-gradient(180deg,#F3EFE6 0%, #EFEBE1 55%, #EAE5D8 100%);
   }
+  canvas#fluid{position:fixed; inset:0; z-index:-2; width:100%; height:100%; pointer-events:none; display:block; opacity:0; transition:opacity 1.2s ease}
+  canvas#fluid.on{opacity:1}
   canvas#sky{position:fixed; inset:0; z-index:-1; width:100%; height:100%; pointer-events:none; display:block}
 
   .wrap{width:100%; max-width:1200px; margin:0 auto; padding:0 28px}
@@ -393,6 +395,7 @@
 <div class="cursor cursor-ring" id="cRing" aria-hidden="true"></div>
 <div class="cursor cursor-dot" id="cDot" aria-hidden="true"></div>
 
+<canvas id="fluid" aria-hidden="true"></canvas>
 <canvas id="sky" aria-hidden="true"></canvas>
 
 <!-- ===== NAV ===== -->
@@ -626,6 +629,7 @@
     root.setAttribute('data-theme',t);
     try{ localStorage.setItem('rks-theme',t); }catch(e){}
     if(window.__sky) window.__sky.retheme();
+    if(window.__fluid) window.__fluid.setTheme();
     setTimeout(function(){ root.classList.remove('theming'); }, 560);
   }
   toggle.addEventListener('click', function(){
@@ -726,7 +730,67 @@
   wrap.addEventListener('click', activate);
   wrap.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activate(); } });
 
-  /* ================= COSMOS + AURORA BACKGROUND ================= */
+  /* ================= WEBGL FLUID BACKGROUND (Lusion-style flowing shader) ================= */
+  (function(){
+    var canvas=document.getElementById('fluid'), gl=null;
+    try{ gl=canvas.getContext('webgl',{antialias:false,alpha:false,depth:false})||canvas.getContext('experimental-webgl'); }catch(e){}
+    if(!gl){ return; }               /* fallback: body::before gradient + starfield stay */
+    var vsrc='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    var fsrc=[
+      'precision highp float;',
+      'uniform vec2 uRes;uniform float uTime;uniform vec2 uMouse;uniform vec3 cA,cB,cC;',
+      'float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}',
+      'float noise(vec2 p){vec2 i=floor(p),f=fract(p);float a=hash(i),b=hash(i+vec2(1.,0.)),c=hash(i+vec2(0.,1.)),d=hash(i+vec2(1.,1.));vec2 u=f*f*(3.-2.*f);return mix(mix(a,b,u.x),mix(c,d,u.x),u.y);}',
+      'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.02;a*=.5;}return v;}',
+      'void main(){vec2 uv=gl_FragCoord.xy/uRes.xy;vec2 p=uv;p.x*=uRes.x/uRes.y;',
+      'float t=uTime*.06;vec2 m=uMouse/uRes;m.x*=uRes.x/uRes.y;',
+      'vec2 q=vec2(fbm(p*1.5+t),fbm(p*1.5-t+5.2));',
+      'vec2 r=vec2(fbm(p*1.5+q*1.8+t*1.3),fbm(p*1.5+q*1.8-t));',
+      'float f=fbm(p*1.6+r*1.6);',
+      'float md=distance(p,m);f+=0.10*exp(-md*3.0)*sin(md*16.-uTime*2.0);',
+      'f=clamp(f,0.,1.);',
+      'vec3 col=mix(cA,cB,smoothstep(0.15,0.62,f));',
+      'col=mix(col,cC,smoothstep(0.5,0.96,f)*0.6);',
+      'col+=(hash(gl_FragCoord.xy+uTime)-.5)*0.02;',
+      'gl_FragColor=vec4(col,1.);}'
+    ].join('\n');
+    function sh(ty,src){ var s=gl.createShader(ty); gl.shaderSource(s,src); gl.compileShader(s); return gl.getShaderParameter(s,gl.COMPILE_STATUS)?s:null; }
+    var vs=sh(gl.VERTEX_SHADER,vsrc), fs=sh(gl.FRAGMENT_SHADER,fsrc);
+    if(!vs||!fs){ return; }
+    var prog=gl.createProgram(); gl.attachShader(prog,vs); gl.attachShader(prog,fs); gl.linkProgram(prog);
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){ return; }
+    gl.useProgram(prog);
+    var b=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,b); gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+    var lp=gl.getAttribLocation(prog,'p'); gl.enableVertexAttribArray(lp); gl.vertexAttribPointer(lp,2,gl.FLOAT,false,0,0);
+    var uRes=gl.getUniformLocation(prog,'uRes'),uTime=gl.getUniformLocation(prog,'uTime'),uMouse=gl.getUniformLocation(prog,'uMouse');
+    var uA=gl.getUniformLocation(prog,'cA'),uB=gl.getUniformLocation(prog,'cB'),uC=gl.getUniformLocation(prog,'cC');
+    var THEMES={ dark:[[0.030,0.035,0.070],[0.090,0.075,0.200],[0.230,0.150,0.055]],
+                 light:[[0.955,0.930,0.865],[0.855,0.855,0.960],[0.955,0.895,0.805]] };
+    function pick(){ return THEMES[root.getAttribute('data-theme')==='light'?'light':'dark']; }
+    var tgt=pick(), cur=[tgt[0].slice(),tgt[1].slice(),tgt[2].slice()];
+    var dprF=1, mx=-9999, my=-9999;
+    function resize(){ dprF=Math.min(devicePixelRatio||1,1.5); canvas.width=Math.floor(innerWidth*dprF); canvas.height=Math.floor(innerHeight*dprF); gl.viewport(0,0,canvas.width,canvas.height); }
+    resize(); addEventListener('resize', resize);
+    addEventListener('pointermove', function(e){ mx=e.clientX*dprF; my=(innerHeight-e.clientY)*dprF; },{passive:true});
+    var t0=performance.now(), raf=null;
+    function draw(now){
+      for(var i=0;i<3;i++){ for(var j=0;j<3;j++){ cur[i][j]+=(tgt[i][j]-cur[i][j])*0.06; } }
+      gl.uniform2f(uRes,canvas.width,canvas.height);
+      gl.uniform1f(uTime,(now-t0)/1000);
+      gl.uniform2f(uMouse,mx,my);
+      gl.uniform3fv(uA,cur[0]); gl.uniform3fv(uB,cur[1]); gl.uniform3fv(uC,cur[2]);
+      gl.drawArrays(gl.TRIANGLES,0,3);
+      raf=requestAnimationFrame(draw);
+    }
+    function startF(){ if(!raf && !reduce) raf=requestAnimationFrame(draw); }
+    function stopF(){ if(raf){ cancelAnimationFrame(raf); raf=null; } }
+    document.addEventListener('visibilitychange', function(){ if(document.hidden)stopF(); else startF(); });
+    canvas.classList.add('on');
+    window.__fluid={ setTheme:function(){ tgt=pick(); } };
+    if(reduce){ draw(performance.now()); } else startF();
+  })();
+
+  /* ================= COSMOS BACKGROUND (stars + constellation) ================= */
   (function(){
     var canvas=document.getElementById('sky'), ctx=canvas.getContext('2d');
     var W=0,H=0,dpr=1,stars=[],nodes=[],shooters=[],orbs=[],mouse={x:-9999,y:-9999};
@@ -747,11 +811,7 @@
       for(var i=0;i<sc;i++) stars.push({x:Math.random()*W,y:Math.random()*H,r:rand(.4,1.5),base:rand(.2,.85),tw:rand(.5,2),ph:Math.random()*6.28,c:Math.random()<.72?'star':(Math.random()<.6?'star2':'star3')});
       var nc=Math.max(24,Math.min(Math.round(W*H/26000),104)); if(W<640)nc=Math.min(nc,40); nodes=[];
       for(var j=0;j<nc;j++) nodes.push({x:Math.random()*W,y:Math.random()*H,vx:rand(-.12,.12),vy:rand(-.12,.12),r:rand(.9,1.9)});
-      orbs=[
-        {x:.2,y:.2,r:.5,a:'a1',ph:0,sp:.06},
-        {x:.8,y:.15,r:.42,a:'a2',ph:2,sp:.05},
-        {x:.6,y:.9,r:.55,a:'a3',ph:4,sp:.04}
-      ];
+      orbs=[]; /* aurora now handled by the WebGL fluid layer behind */
     }
     function orbColor(key,alpha){ return 'rgba('+PAL[key]+','+alpha+')'; }
     var LINK=130,MLINK=180,t=0,raf=null;
