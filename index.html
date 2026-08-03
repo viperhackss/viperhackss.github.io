@@ -252,8 +252,8 @@
 
   /* ================= MARQUEE ================= */
   .marquee{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px 0; overflow:hidden; white-space:nowrap; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-  .marquee .track{display:inline-flex; gap:34px; animation:marq 26s linear infinite; will-change:transform}
-  .marquee:hover .track{animation-play-state:paused}
+  .marquee .track{display:inline-flex; gap:34px; will-change:transform} /* JS-driven, scroll-velocity reactive */
+  @media (prefers-reduced-motion:reduce){ .marquee .track{animation:marq 40s linear infinite} }
   .marquee span{font-family:'Syne',sans-serif; font-weight:700; font-size:clamp(1.1rem,2.4vw,1.6rem); color:var(--ink); display:inline-flex; align-items:center; gap:34px; letter-spacing:-.01em}
   .marquee span::after{content:"✦"; color:var(--gold); font-size:.7em}
   @keyframes marq{to{transform:translateX(-50%)}}
@@ -620,6 +620,7 @@
   var root=document.documentElement;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var scrollVel=0;   /* shared: smooth-scroll -> marquee + fluid */
   document.getElementById('yr').textContent=new Date().getFullYear();
 
   /* ---------- THEME ---------- */
@@ -730,6 +731,58 @@
   wrap.addEventListener('click', activate);
   wrap.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activate(); } });
 
+  /* ================= SMOOTH INERTIA SCROLL (desktop) ================= */
+  (function(){
+    if(!fine || reduce) return;
+    var target=window.scrollY, cur=window.scrollY, last=cur, running=false;
+    function maxY(){ return Math.max(0, document.documentElement.scrollHeight - innerHeight); }
+    function loop(){
+      cur += (target-cur)*0.10;
+      scrollVel = cur - last; last = cur;
+      if(Math.abs(target-cur)<0.35){ cur=target; running=false; scrollVel=0; window.scrollTo(0,cur); return; }
+      window.scrollTo(0, cur);
+      requestAnimationFrame(loop);
+    }
+    addEventListener('wheel', function(e){
+      if(e.ctrlKey) return;                         /* allow pinch-zoom */
+      e.preventDefault();
+      var d=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?innerHeight:1);
+      target=Math.max(0, Math.min(target+d, maxY()));
+      if(!running){ running=true; last=cur=window.scrollY; requestAnimationFrame(loop); }
+    }, {passive:false});
+    addEventListener('scroll', function(){ if(!running){ target=cur=last=window.scrollY; } }, {passive:true});
+    addEventListener('resize', function(){ target=Math.min(target, maxY()); });
+  })();
+
+  /* ================= HERO MOUSE PARALLAX (depth) ================= */
+  (function(){
+    if(!fine || reduce) return;
+    var hero=document.querySelector('.hero'), stage=document.querySelector('.stage'), rings=document.querySelector('.stage .rings');
+    if(!hero||!stage) return;
+    var tx=0,ty=0,cx=0,cy=0;
+    hero.addEventListener('pointermove', function(e){ tx=e.clientX/innerWidth-0.5; ty=e.clientY/innerHeight-0.5; });
+    hero.addEventListener('pointerleave', function(){ tx=0; ty=0; });
+    (function p(){ cx+=(tx-cx)*0.07; cy+=(ty-cy)*0.07;
+      stage.style.transform='translate3d('+(cx*22).toFixed(1)+'px,'+(cy*17).toFixed(1)+'px,0)';
+      if(rings) rings.style.transform='translate3d('+(cx*-32).toFixed(1)+'px,'+(cy*-24).toFixed(1)+'px,0)';
+      requestAnimationFrame(p);
+    })();
+  })();
+
+  /* ================= MARQUEE (scroll-velocity reactive) ================= */
+  (function(){
+    var track=document.querySelector('.marquee .track'), holder=document.querySelector('.marquee');
+    if(!track || !holder || reduce) return;
+    var half=track.scrollWidth/2, x=0, paused=false;
+    addEventListener('resize', function(){ half=track.scrollWidth/2; });
+    holder.addEventListener('pointerenter', function(){ paused=true; });
+    holder.addEventListener('pointerleave', function(){ paused=false; });
+    (function m(){
+      if(!paused && half>0){ x -= 0.6 + Math.min(Math.abs(scrollVel)*0.28, 9); if(x<=-half) x+=half; track.style.transform='translateX('+x.toFixed(2)+'px)'; }
+      requestAnimationFrame(m);
+    })();
+  })();
+
   /* ================= WEBGL FLUID BACKGROUND (Lusion-style flowing shader) ================= */
   (function(){
     var canvas=document.getElementById('fluid'), gl=null;
@@ -772,11 +825,12 @@
     function resize(){ dprF=Math.min(devicePixelRatio||1,1.5); canvas.width=Math.floor(innerWidth*dprF); canvas.height=Math.floor(innerHeight*dprF); gl.viewport(0,0,canvas.width,canvas.height); }
     resize(); addEventListener('resize', resize);
     addEventListener('pointermove', function(e){ mx=e.clientX*dprF; my=(innerHeight-e.clientY)*dprF; },{passive:true});
-    var t0=performance.now(), raf=null;
+    var t0=performance.now(), raf=null, flow=0;
     function draw(now){
       for(var i=0;i<3;i++){ for(var j=0;j<3;j++){ cur[i][j]+=(tgt[i][j]-cur[i][j])*0.06; } }
+      flow += 0.016*(1+Math.min(Math.abs(scrollVel)*0.5,7));  /* fluid flows faster while scrolling */
       gl.uniform2f(uRes,canvas.width,canvas.height);
-      gl.uniform1f(uTime,(now-t0)/1000);
+      gl.uniform1f(uTime,flow);
       gl.uniform2f(uMouse,mx,my);
       gl.uniform3fv(uA,cur[0]); gl.uniform3fv(uB,cur[1]); gl.uniform3fv(uC,cur[2]);
       gl.drawArrays(gl.TRIANGLES,0,3);
